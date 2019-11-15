@@ -1,0 +1,11 @@
+C:\Users\tug51072\source\repos\Project4API\Project4API\bin\Debug\netcoreapp2.0\Project4API.deps.json
+C:\Users\tug51072\source\repos\Project4API\Project4API\bin\Debug\netcoreapp2.0\Project4API.runtimeconfig.json
+C:\Users\tug51072\source\repos\Project4API\Project4API\bin\Debug\netcoreapp2.0\Project4API.runtimeconfig.dev.json
+C:\Users\tug51072\source\repos\Project4API\Project4API\bin\Debug\netcoreapp2.0\Project4API.dll
+C:\Users\tug51072\source\repos\Project4API\Project4API\obj\Debug\netcoreapp2.0\Project4API.csprojAssemblyReference.cache
+C:\Users\tug51072\source\repos\Project4API\Project4API\obj\Debug\netcoreapp2.0\Project4API.csproj.CoreCompileInputs.cache
+C:\Users\tug51072\source\repos\Project4API\Project4API\obj\Debug\netcoreapp2.0\Project4API.AssemblyInfoInputs.cache
+C:\Users\tug51072\source\repos\Project4API\Project4API\obj\Debug\netcoreapp2.0\Project4API.AssemblyInfo.cs
+C:\Users\tug51072\source\repos\Project4API\Project4API\bin\Debug\netcoreapp2.0\Project4API.pdb
+C:\Users\tug51072\source\repos\Project4API\Project4API\obj\Debug\netcoreapp2.0\Project4API.dll
+C:\Users\tug51072\source\repos\Project4API\Project4API\obj\Debug\netcoreapp2.0\Project4API.pdb
