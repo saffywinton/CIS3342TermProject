@@ -1,0 +1,20 @@
+﻿body {
+}
+
+.fillBox{
+    height:100%;
+    width:100%;
+}
+
+.fillWidth{
+    width:100%;
+}
+
+.fillHeight{
+    height:100%;
+}
+
+.fill20{
+    width:20%;
+    height:auto;
+}

@@ -1,0 +1,61 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="CustomerMaster.master.cs" Inherits="DoorGrubMate.CustomerMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Stylesheets/UtilitySheet.css">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+          <!-- Brand/logo -->
+          <a class="navbar-brand" href="#">Logo</a>
+  
+          <!-- Links -->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+                <asp:Button ID="btnToRestaurantList" runat="server" Text="Restaurant List" class="nav-link" OnClick="btnToRestaurantList_Click"/>
+            </li>
+            <li class="nav-item">
+                <asp:Button ID="btnToCart" runat="server" Text="Cart" class="nav-link" OnClick="btnToCart_Click"/>
+            </li>
+            <li class="nav-item">
+                <asp:Button ID="btnToProfile" runat="server" Text="Profile" class="nav-link" OnClick="btnToProfile_Click"/>
+            </li>
+            <li class="nav-item">
+                <asp:Button ID="btnLogout" runat="server" Text="Logout" class="nav-link" OnClick="btnLogout_Click"/>
+            </li>
+          </ul>
+        </nav>
+            <div class ="row">
+                <div class="col-9">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div class="col-3">
+                    <div id="CheckOutItems" runat="server">
+                    <asp:GridView ID="gvCart" runat="server" AutoGenerateColumns="False" ShowFooter="true">
+                        <Columns>
+                            <asp:ImageField DataImageUrlField="Image" HeaderText="Image">
+                            </asp:ImageField>
+                            <asp:BoundField DataField="Name" HeaderText="Name" />
+                            <asp:BoundField DataField="Price" HeaderText="Price" DataFormatString="{0:c}"/>
+                        </Columns>
+
+                    </asp:GridView>
+                    <br />
+                    <asp:Button ID="btnCheckOut" runat="server" Text="CheckOut" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
