@@ -1,0 +1,54 @@
+CREATE PROCDURE TP_CreateMerchant
+           @email
+           @password
+           @name
+           @bankInfo
+           @apiKey
+           
+           AS
+           
+           INSERT INTO TP_Merchant
+         VALUES (@email, @password, @name, @bankInfo, @apiKey);
+
+
+CREATE PROCDURE TP_UpdateVirtualWallet
+	@virtualWalletID
+	@email
+	@password
+
+	AS
+
+	UPDATE API_WalletUser
+	SET email = @email, password = @password
+	Where @virtualWalletID = walletUserID;
+
+CREATE PROCDURE TP_GetOutGoingTransationsByVirtualWallet
+
+	@SenderVirtualWallet
+	
+	AS
+
+	SELECT *
+	FROM API_Transactions
+	WHERE @SenderVirtualWallet = senderWalletUserID;
+
+CREATE PROCDURE TP_GetIncomingTransationsByVirtualWallet
+
+	@ReceiverVirtualWallet
+	
+	AS
+
+	SELECT *
+	FROM API_Transactions
+	WHERE @ReceiverVirtualWallet= receiverWalletUserID
+
+CREATE PROCDURE TP_GetAPIKEY
+	
+	@merchantID
+	@apiKey
+
+	AS
+
+	SELECT *
+	FROM API_Merchant
+	WHERE @merchantID = merchantID, @apiKey = apiKey;
