@@ -33,14 +33,20 @@
             if ($("#txtMerchantName").val() == "" ) {
                 alert("Must enter a merchant name");
                 return false;
-            } else if ($("#txtLastName").val() == "") {
-                alert("Must enter a last name");
+            } else if ($("#txtWebsiteURL").val() == "") {
+                alert("Must enter a website URL");
                 return false;
             }else if ($("#txtEmail").val() == "") {
                 alert("Must enter an email");
                 return false;
             }else if ($("#txtPassword").val() == "") {
                 alert("Must enter a password");
+                return false;
+            }else if ($("#txtRouting").val() == "") {
+                alert("Must enter a routing number");
+                return false;
+            }else if ($("#txtAccount").val() == "") {
+                alert("Must enter an account number");
                 return false;
             }
           
