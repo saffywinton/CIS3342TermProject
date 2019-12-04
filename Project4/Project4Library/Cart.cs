@@ -2,19 +2,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace DoorGrubMate.DoorGrubLibary
+namespace Project4Library
 {
-
     /*
-     *    Ieuan Horton
-     * 
-     *    Return codes
-     *   -1 = Failure|UserError
-     *    0 = Failure|LogicError
-     *    1 = Success
-     */ 
+        *    Ieuan Horton
+        * 
+        *    Return codes
+        *   -1 = Failure|UserError
+        *    0 = Failure|LogicError
+        *    1 = Success
+        */
 
     [Serializable]
     public class Cart
@@ -26,7 +26,7 @@ namespace DoorGrubMate.DoorGrubLibary
         public float GetCartTotal()
         {
             float total = 0;
-            foreach(Item item in ItemList)
+            foreach (Item item in ItemList)
             {
                 total = total + item.Price;
             }
@@ -58,7 +58,7 @@ namespace DoorGrubMate.DoorGrubLibary
 
         internal int AddToCart(Item item)
         {
-            if(ItemList.IndexOf(item) > -1)
+            if (ItemList.IndexOf(item) > -1)
             {
                 ItemList.Add(item);
                 return 1;
@@ -72,7 +72,7 @@ namespace DoorGrubMate.DoorGrubLibary
 
         internal int DeleteFromCart(Item item)
         {
-            if(ItemList.IndexOf(item) > -1)
+            if (ItemList.IndexOf(item) > -1)
             {
                 ItemList.Remove(item);
                 return 1;
@@ -86,7 +86,7 @@ namespace DoorGrubMate.DoorGrubLibary
 
         internal int SwapItem(Item item)
         {
-            if(ItemList.IndexOf(item) > -1)
+            if (ItemList.IndexOf(item) > -1)
             {
                 ItemList[ItemList.IndexOf(item)] = item;
                 return 1;

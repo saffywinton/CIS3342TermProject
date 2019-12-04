@@ -1,22 +1,20 @@
-﻿using ServerSide.Utilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Web;
-using Utilities;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace DoorGrubMate.DoorGrubLibary
+namespace Project4Library
 {
-
     /*
     *   This class assists in getting data from the database
     */
 
     public class GetData
     {
-        DBConnect objDB = new DBConnect();
+        IeuanDBConnect objDB = new IeuanDBConnect();
         SqlCommand objCommand;
         string strSQL;
         FillParameters fp = new FillParameters();
@@ -31,9 +29,7 @@ namespace DoorGrubMate.DoorGrubLibary
             objCommand.CommandText = "TP_GetProfile";
 
             //Inputs parameters to the command object
-            SqlParameter ip = new SqlParameter("@name", name);
-            ip = cip.CreateVarChar(ip);//Calls a class that does all the work of creating a parameter
-            objCommand.Parameters.Add(ip);
+            fp.AddParameter(ref objCommand, "@name", name);
 
             //Returns the DataSet
             return objDB.GetDataSetUsingCmdObj(objCommand);
@@ -61,7 +57,7 @@ namespace DoorGrubMate.DoorGrubLibary
             objCommand.CommandText = "TP_GetRestaurantRep";
 
             //Inputs parameters to the command object
-            fp.AddParameter(ref objCommand, "@userID", id);
+            fp.AddParameter(ref objCommand, "@userID", userID);
 
             //Returns the DataSet
             return objDB.GetDataSetUsingCmdObj(objCommand);
@@ -77,7 +73,7 @@ namespace DoorGrubMate.DoorGrubLibary
             objCommand.CommandText = "TP_GetCart";
 
             //Inputs parameters to the command object
-            fp.AddParameter(ref objCommand, "@userID", id);
+            fp.AddParameter(ref objCommand, "@userID", userID);
 
             //Returns the DataSet
             return objDB.GetDataSetUsingCmdObj(objCommand);

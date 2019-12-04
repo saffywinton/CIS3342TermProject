@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace DoorGrubMate.DoorGrubLibary
+namespace Project4Library
 {
     public class Item
     {
@@ -11,7 +12,7 @@ namespace DoorGrubMate.DoorGrubLibary
         string description;
         string image;
         float price;
-        
+
         public Item(string n, string d, string i, float p)
         {
             name = n;

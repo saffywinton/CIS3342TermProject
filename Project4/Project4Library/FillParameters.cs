@@ -1,13 +1,13 @@
-﻿using ServerSide.Utilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace DoorGrubMate.DoorGrubLibary
+namespace Project4Library
 {
-    public class FillParameters
+    class FillParameters
     {
         CreateInputParameter cip = new CreateInputParameter();
 

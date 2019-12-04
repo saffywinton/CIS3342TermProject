@@ -1,14 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Utilities
+namespace Project4Library
 {
-    public class DBConnect
+    public class IeuanDBConnect
     {
         //String SqlConnectString = "server=cis-mssql1.temple.edu;Database=FA19_3342_tug51072;User id=tug51072;Password=up7keiZe";
         String SqlConnectString = "server=127.0.0.1,5555;Database=FA19_3342_tug51072;User id=tug51072;Password=up7keiZe";
@@ -27,7 +27,7 @@ namespace Utilities
         // Returns: a DataSet containing the records found by the query. 
         // Note: The DataSet is also stored as a class variable for use in the GetField method
         public DataSet GetDataSet(String SqlSelect)
-        {         
+        {
             SqlDataAdapter myDataAdapter = new SqlDataAdapter(SqlSelect, myConnectionSql);
             DataSet myDataSet = new DataSet();
             myDataAdapter.Fill(myDataSet);
@@ -126,7 +126,7 @@ namespace Utilities
             myDataAdapter.Fill(myDataSet);
             ds = myDataSet;
 
-            return myDataSet;          
+            return myDataSet;
         }
 
         // This method is used to retrieve a row from a DataSet.
@@ -221,4 +221,4 @@ namespace Utilities
         }
 
     }   // end class
-}   // end namespace
+}

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DoorGrubMate {
+namespace Project4 {
     
     
     public partial class CustomerMaster {

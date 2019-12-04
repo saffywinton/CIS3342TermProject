@@ -5,18 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace DoorGrubMate
+namespace Project4
 {
-    public partial class RestaurantSelection : System.Web.UI.Page
+    public partial class RestarantSelection : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-            
-        }
-
-
-        protected void gvRestaurantList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

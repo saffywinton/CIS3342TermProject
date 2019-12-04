@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Web;
-using Utilities;
-using DoorGrubMate.DoorGrubLibary;
-using ServerSide.Utilities;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace DoorGrubMate.DoorGrubLibary
+namespace Project4Library
 {
-
     /*
-     *  This class assists creating, updating and deleting of data in the database
-     */ 
+         *  This class assists creating, updating and deleting of data in the database
+         */
 
     public class SetData
     {
@@ -78,7 +73,7 @@ namespace DoorGrubMate.DoorGrubLibary
 
             objDB.DoUpdateUsingCmdObj(objCommand);
         }
-        
+
         //Creates an admin in the database
         public void CreateAdmin(int id)
         {

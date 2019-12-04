@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace DoorGrubMate.DoorGrubLibary
+namespace Project4Library
 {
-    public class User
+    class Customer
     {
         string userID;
         string firstName;
@@ -37,7 +38,7 @@ namespace DoorGrubMate.DoorGrubLibary
         public string Email
         {
             get { return email; }
-            set { email = value;}
+            set { email = value; }
         }
 
         public string PhoneNumber

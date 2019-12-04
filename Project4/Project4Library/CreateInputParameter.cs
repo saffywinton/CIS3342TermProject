@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ServerSide.Utilities
+namespace Project4Library
 {
-    public class CreateInputParameter
+    class CreateInputParameter
     {
         public SqlParameter CreateVarChar(SqlParameter sqlp)
         {
