@@ -1,54 +1,95 @@
-CREATE PROCDURE TP_CreateMerchant
-           @email
-           @password
-           @name
-           @bankInfo
-           @apiKey
+
+
+
+CREATE PROCEDURE [dbo].[TP_CreateMerchant]
+		   @email varchar(50),
+           @password varchar(50),
+           @name varchar(50),
+           @bankAccount varchar(50),
+	       @bankRouting varchar(50),
+           @apiKey varchar(50),
+	       @url varchar(50)
            
            AS
            
            INSERT INTO TP_Merchant
-         VALUES (@email, @password, @name, @bankInfo, @apiKey);
+         VALUES (@email, @password, @name, @url, @bankAccount, @bankRouting, @apiKey);
 
 
-CREATE PROCDURE TP_UpdateVirtualWallet
-	@virtualWalletID
-	@email
-	@password
+
+
+CREATE PROCEDURE [dbo].[TP_UpdateVirtualWallet]
+	@virtualWalletID int,
+	@email varchar(50),
+	@password varchar(50)
 
 	AS
 
 	UPDATE API_WalletUser
 	SET email = @email, password = @password
-	Where @virtualWalletID = walletUserID;
+	Where @virtualWalletID = WalletID;
 
-CREATE PROCDURE TP_GetOutGoingTransationsByVirtualWallet
+CREATE PROCEDURE [dbo].[TP_GetOutGoingTransationsByVirtualWallet]
 
-	@SenderVirtualWallet
+	@SenderVirtualWallet int
 	
 	AS
 
 	SELECT *
 	FROM API_Transactions
-	WHERE @SenderVirtualWallet = senderWalletUserID;
+	WHERE @SenderVirtualWallet = SenderWalletID;
 
-CREATE PROCDURE TP_GetIncomingTransationsByVirtualWallet
 
-	@ReceiverVirtualWallet
+	@ReceiverVirtualWallet int
 	
 	AS
 
 	SELECT *
 	FROM API_Transactions
-	WHERE @ReceiverVirtualWallet= receiverWalletUserID
+	WHERE @ReceiverVirtualWallet= ReceiverWalletID
 
-CREATE PROCDURE TP_GetAPIKEY
+CREATE PROCEDURE [dbo].[TP_GetAPIKEY]
 	
-	@merchantID
-	@apiKey
+	@merchantID int,
+	@apiKey varchar(50)
 
 	AS
 
 	SELECT *
 	FROM API_Merchant
-	WHERE @merchantID = merchantID, @apiKey = apiKey;
+	WHERE @merchantID = merchantID AND @apiKey = APIKey;
+
+
+CREATE PROCEDURE [dbo].[TP_FundAccount]
+	
+	@virtualWalletID int,
+	@amount float
+	AS
+
+	UPDATE API_WalletUser
+	SET Amount = @amount
+	Where @virtualWalletID = WalletID;
+
+CREATE PROCEDURE [dbo].[TP_GetAccountBalance]
+	
+	@virtualWalletID int,
+	@apiKey varchar(50)
+
+	AS
+
+	SELECT *
+	FROM API_WalletUser
+	Where @virtualWalletID = WalletID;
+
+CREATE PROCEDURE [dbo].[TP_RecordTransaction]
+	
+	@sender int,
+	@receiver int,
+	@amount float, 
+	@type varchar(50),
+	@date varchar(50)
+
+	AS
+
+	INSERT INTO API_Transactions
+	VALUES (@sender, @receiver, @amount, @type, @date);

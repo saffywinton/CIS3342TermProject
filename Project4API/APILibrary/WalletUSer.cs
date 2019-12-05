@@ -12,5 +12,7 @@ namespace APILibrary
         public string email { get; set; }
         public string password { get; set; }
         public float amount { get; set; }
+        public string bankAccount { get; set; }
+        public string bankRouting { get; set; }
     }
 }

@@ -12,7 +12,9 @@ namespace APILibrary
         public string email { get; set; }
         public string password { get; set; }
         public string name { get; set; }
-        public string bankInfo { get; set; }
+        public string URL { get; set; }
+        public string bankAccount { get; set; }
+        public string bankRouting { get; set; }
         public string apiKey { get; set; }
     }
 }
