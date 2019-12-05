@@ -8,11 +8,13 @@ namespace Project4Library
 {
     class Merchant
     {
-        public int MerchantID { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string Name { get; set; }
-        public string BankInfo { get; set; }
-        public string ApiKey { get; set; }
+        public int merchantID { get; set; }
+        public string email { get; set; }
+        public string password { get; set; }
+        public string name { get; set; }
+        public string URL { get; set; }
+        public string bankAccount { get; set; }
+        public string bankRouting { get; set; }
+        public string apiKey { get; set; }
     }
 }

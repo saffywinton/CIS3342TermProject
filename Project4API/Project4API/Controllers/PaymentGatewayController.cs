@@ -200,8 +200,18 @@ namespace Project4API.Controllers
             fp.AddParameter(ref objCommand, "@bankAccount", AccountHolderInformation.bankAccount);
             fp.AddParameter(ref objCommand, "@amount", 0);
 
-            return objDB.DoUpdateUsingCmdObj(objCommand);
-             }
+            objDB.DoUpdateUsingCmdObj(objCommand);
+
+                //get virtual wallet ID
+                //Gets a new SQL Command object
+                objCommand = new SqlCommand();
+
+                //Sets which stored procedure the command object will use
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_GetWalletID";
+                DataSet ds = objDB.GetDataSetUsingCmdObj(objCommand);
+                return ds.Tables[0].Rows[0]["WalletID"].ToString();
+            }
             return -1;
         }
 
@@ -213,32 +223,18 @@ namespace Project4API.Controllers
             //Check if API key matches
             if (CheckAPIKey(MerchantAccountID, APIKey))
             {
-                //determine type
-                if(type == "Refund"){
-                    //update sender balance
-                    if (GetAccountBalance(VirtualWalletIDPay) >= amount)
-                    {
-
-                        FundAccount(VirtualWalletIDPay, (-amount), MerchantAccountID, APIKey);
-                        //update receiver balance
-                        FundAccount(VirtualWalletIDPay, amount, MerchantAccountID, APIKey);
-                        //record transaction
-                        RecordTransaction(VirtualWalletIDPay, VirtualWalletIDCharge, amount, type);
-                    }
-                }
-                else if (type == "Payment")
-                {
-                    if (GetAccountBalance(VirtualWalletIDPay) >= amount)
-                    {
-                        //update sender balance
-                        FundAccount(VirtualWalletIDPay, (-amount), MerchantAccountID, APIKey);
-                        //update receiver balance
-                        FundAccount(VirtualWalletIDPay, amount, MerchantAccountID, APIKey);
-                        //record transaction
-                        RecordTransaction(VirtualWalletIDPay, VirtualWalletIDCharge, amount, type);
-                    }
+              
                     
-                }
+                    if (GetAccountBalance(VirtualWalletIDPay) >= amount)
+                    {
+                    //update sender balance
+                        FundAccount(VirtualWalletIDPay, (-amount), MerchantAccountID, APIKey);
+                        //update receiver balance
+                        FundAccount(VirtualWalletIDPay, amount, MerchantAccountID, APIKey);
+                        //record transaction
+                        RecordTransaction(VirtualWalletIDPay, VirtualWalletIDCharge, amount, type);
+                    }
+                return 1;
             }
                 
                 return -1;
@@ -270,7 +266,10 @@ namespace Project4API.Controllers
 
                 fp.AddParameter(ref objCommand, "@amount", newBalance.ToString());
 
-                return objDB.DoUpdateUsingCmdObj(objCommand);
+
+                objDB.DoUpdateUsingCmdObj(objCommand);
+                RecordTransaction(-1, VirtualWalletID, amount, "fund");
+                return 1;
             }
 
             return -1;

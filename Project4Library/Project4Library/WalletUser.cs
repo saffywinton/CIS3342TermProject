@@ -8,9 +8,11 @@ namespace Project4Library
 {
     class WalletUser
     {
-        public string UserID { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public float Amount { get; set; }
+        public int walletID { get; set; }
+        public string email { get; set; }
+        public string password { get; set; }
+        public float amount { get; set; }
+        public string bankAccount { get; set; }
+        public string bankRouting { get; set; }
     }
 }

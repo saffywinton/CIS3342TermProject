@@ -8,9 +8,11 @@ namespace Project4Library
 {
     class Transactions
     {
-        public int SenderWalletUserID { get; set; }
-        public int ReceiverWalletUserID { get; set; }
-        public float Amount { get; set; }
-        public string Type { get; set; }
+        public int transactionID { get; set; }
+        public int senderWalletUserID { get; set; }
+        public int receiverWalletUserID { get; set; }
+        public float amount { get; set; }
+        public string type { get; set; }
+        public string date { get; set; }
     }
 }

@@ -26,8 +26,8 @@
 
     <!-- Main CSS-->
     <link href="css/main.css" rel="stylesheet" media="all">
-
-    <script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script >
      
         var validate = function () {
             if ($("#txtMerchantName").val() == "" ) {
@@ -100,7 +100,7 @@
                             </div>
                         </div>
                         <div class="p-t-30">
-                           <asp:Button class="btn btn--radius btn--green" type="submit" Text="Register" runat="server" OnClientClick="return validate();" />
+                           <asp:Button  ID="btnRegister" class="btn btn--radius btn--green" type="submit" Text="Register" runat="server" OnClientClick="return validate();" OnClick="btnRegister_Click" />
                         </div>
                     </form>
                 </div>
