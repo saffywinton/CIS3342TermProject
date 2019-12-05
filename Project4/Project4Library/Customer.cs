@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project4Library
 {
-    class Customer
+    public class Customer
     {
         string userID;
         string firstName;

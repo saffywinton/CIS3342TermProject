@@ -116,6 +116,12 @@
   <ItemGroup>
     <Folder Include="Stylesheets\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Project4Library\Project4Library.csproj">
+      <Project>{3bf68206-850c-47c3-9ce5-40df31e93c3e}</Project>
+      <Name>Project4Library</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

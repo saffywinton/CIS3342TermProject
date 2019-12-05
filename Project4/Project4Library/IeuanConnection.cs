@@ -17,7 +17,7 @@ namespace Project4Library
         SqlDataReader objDataReader;
         DataSet ds;
 
-        public DBConnect()
+        public IeuanDBConnect()
         {
             myConnectionSql = new SqlConnection(SqlConnectString);
         }
@@ -206,7 +206,7 @@ namespace Project4Library
         }
 
         // The Deconstructor
-        ~DBConnect()
+        ~IeuanDBConnect()
         {
             // Close any open connections to the database before the objects of this class
             // are garbage collected.

@@ -19,14 +19,15 @@
                 <asp:Button ID="btnSetUpSignUpCustomer" runat="server" Text="Sign Up Customer" OnClick="btnSetUpSignUpCustomer_Click" />
                 <asp:Button ID="btnSetUpSignUpRestaurant" runat="server" Text="Sign Up Restaurant" OnClick="btnSetUpSignUpRestaurant_Click" />
                 <br />
-                <div id="userAction" visible="true">
-                    <asp:Label ID="lblUserAction" runat="server" Text=""></asp:Label>
-                </div>
+                <asp:Label ID="lblUserAction" runat="server" Text=""></asp:Label>
+                <br />
+                <asp:Label ID="lblError" runat="server" Text="" Style="color:red;"></asp:Label>
+                <br />
                 <asp:Panel ID="Login" runat="server" Visible="true">
                     <asp:Table ID="tblLogin" runat="server" style="margin:auto;">
                         <asp:TableRow>
                             <asp:TableCell>
-                                Username:
+                                Email:
                             </asp:TableCell>
                             <asp:TableCell>
                                 <asp:TextBox ID="txtLoginUsername" runat="server"></asp:TextBox>

@@ -19,7 +19,7 @@ namespace Project4Library
         string strSQL;
         FillParameters fp = new FillParameters();
 
-        public DataSet GetProfile(string name)
+        public DataSet GetProfile(string email)
         {
             //Gets a new SQL Command object
             objCommand = new SqlCommand();
@@ -29,7 +29,7 @@ namespace Project4Library
             objCommand.CommandText = "TP_GetProfile";
 
             //Inputs parameters to the command object
-            fp.AddParameter(ref objCommand, "@name", name);
+            fp.AddParameter(ref objCommand, "@email", email);
 
             //Returns the DataSet
             return objDB.GetDataSetUsingCmdObj(objCommand);
@@ -120,9 +120,20 @@ namespace Project4Library
             objCommand.CommandText = "TP_GetMenu";
 
             //Inputs parameters to the command object
-            SqlParameter ip = new SqlParameter("@restaurantsID", restaurantsID);
-            ip = cip.CreateVarChar(ip);//Calls a class that does all the work of creating a parameter
-            objCommand.Parameters.Add(ip);
+            fp.AddParameter(ref objCommand, "@restaurantsID", restaurantsID);
+
+            //Returns the DataSet
+            return objDB.GetDataSetUsingCmdObj(objCommand);
+        }
+
+        public DataSet GetAPIKey()
+        {
+            //Gets a new SQL Command object
+            objCommand = new SqlCommand();
+
+            //Sets which stored procedure the command object will use
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetAPIKey";
 
             //Returns the DataSet
             return objDB.GetDataSetUsingCmdObj(objCommand);
