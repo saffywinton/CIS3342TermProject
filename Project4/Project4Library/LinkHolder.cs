@@ -11,7 +11,8 @@ namespace Project4Library
         public string Cart = "Cart.aspx";
         public string RestaurantSelection = "RestaurantSelection.aspx";
         public string RestaurantMenu = "RestaurantMent.aspx";
-        public string Profile = "Profile.aspx";
+        public string CustomerProfile = "CustomerProfile.aspx";
         public string SplashPage = "SplashPage.aspx";
+        public string AccessPage = "AccessPage.aspx";
     }
 }
