@@ -1,9 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CustomerMaster.Master" AutoEventWireup="true" CodeBehind="CustomerProfile.aspx.cs" Inherits="Project4.CustomerProfile" %>
+
+<%@ Register Src="~/ErrorLabel.ascx" TagPrefix="uc1" TagName="ErrorLabel" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
      <link rel="stylesheet" href="Stylesheets/TableSheet.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div style="text-align:center;">
+    <uc1:ErrorLabel runat="server" id="ErrorLabel"/>
+    </div>
     <div class="row">
         <div class="col-6" style="text-align:center;">
             <asp:Table ID="tblSignUpCustomer" runat="server" style="margin:auto;" Class="TableCenter">
@@ -80,7 +86,7 @@
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
-            <asp:Button ID="btnUpdateAccount" runat="server" Text="Update Account" />
+            <asp:Button ID="btnUpdateAccount" runat="server" Text="Update Account" OnClick="btnUpdateAccount_Click" />
         </div>
         <div class="col-6" style="text-align:center;">
             You currently have :<asp:TextBox ID="txtAccountBalance" runat="server" ReadOnly="true"></asp:TextBox> in your account.

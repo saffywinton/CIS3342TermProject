@@ -12,6 +12,7 @@ namespace Project4Library
         string firstName;
         string lastName;
         string email;
+        string password;
         string phoneNumber;
         string deliveryAddress;
         string billingAddress;
@@ -39,6 +40,12 @@ namespace Project4Library
         {
             get { return email; }
             set { email = value; }
+        }
+
+        public string Password
+        {
+            get { return password; }
+            set { password = value; }
         }
 
         public string PhoneNumber

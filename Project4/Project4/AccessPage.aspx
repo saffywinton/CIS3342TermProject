@@ -1,5 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AccessPage.aspx.cs" Inherits="Project4.AccessPage" %>
 
+<%@ Register Src="~/ErrorLabel.ascx" TagPrefix="uc1" TagName="ErrorLabel" %>
+
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -21,7 +24,7 @@
                 <br />
                 <asp:Label ID="lblUserAction" runat="server" Text=""></asp:Label>
                 <br />
-                <asp:Label ID="lblError" runat="server" Text="" Style="color:red;"></asp:Label>
+                <uc1:ErrorLabel runat="server" id="ErrorLabel" />
                 <br />
                 <asp:Panel ID="Login" runat="server" Visible="true">
                     <asp:Table ID="tblLogin" runat="server" style="margin:auto;">

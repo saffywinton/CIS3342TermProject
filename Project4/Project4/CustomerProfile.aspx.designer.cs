@@ -13,6 +13,15 @@ namespace Project4 {
     public partial class CustomerProfile {
         
         /// <summary>
+        /// ErrorLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Project4.ErrorLabel ErrorLabel;
+        
+        /// <summary>
         /// tblSignUpCustomer control.
         /// </summary>
         /// <remarks>

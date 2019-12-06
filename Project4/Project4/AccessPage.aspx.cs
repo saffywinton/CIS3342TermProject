@@ -166,40 +166,40 @@ namespace Project4
         {
             if (!CheckIfTxtFilled(txtSUCFirstName))
             {
-                FillError("Please fill in the first name");
+                ErrorLabel.FillError("Please fill in the first name");
                 return false;
             }
             else if (!CheckIfTxtFilled(txtSUCLastName))
             {
-                FillError("Please fill in the last name");
+                ErrorLabel.FillError("Please fill in the last name");
                 return false;
             }
             else if (!CheckIfTxtFilled(txtSUCEmail))
             {
-                FillError("Please fill in the email");
+                ErrorLabel.FillError("Please fill in the email");
                 return false;
             }
             else if (!CheckIfTxtFilled(txtSUCPassword))
             {
-                FillError("Please fill in the password");
+                ErrorLabel.FillError("Please fill in the password");
                 return false;
             }
             else if (!CheckIfTxtFilled(txtSUCPhoneNumber))
             {
-                FillError("Please fill in the phonenumber");
+                ErrorLabel.FillError("Please fill in the phonenumber");
                 return false;
             }
             else if (!CheckIfTxtFilled(txtSUCDeliveryAddress))
             {
-                FillError("Please fill in the delivery address");
+                ErrorLabel.FillError("Please fill in the delivery address");
                 return false;
             }
             else if (!CheckIfTxtFilled(txtSUCBillingAddress))
             {
-                FillError("Please fill in the billing address");
+                ErrorLabel.FillError("Please fill in the billing address");
                 return false;
             }
-            FillError("");
+            ErrorLabel.FillError("");
             return true;
         }
 
@@ -239,10 +239,6 @@ namespace Project4
             return true;
         }
 
-        internal void FillError(string s)
-        {
-            lblError.Text = s;
-        }
 
         internal Customer CreateCustomer(string uid, string fn, string ln, string em, string pa, string pn, string ba, string da, string apik)
         {

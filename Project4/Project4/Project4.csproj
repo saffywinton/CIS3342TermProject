@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="AccessPage.aspx" />
     <Content Include="CustomerProfile.aspx" />
+    <Content Include="ErrorLabel.ascx" />
     <Content Include="RestaurantSelection.aspx" />
     <Content Include="RestaurantMenu.aspx" />
     <Content Include="Stylesheets\TableSheet.css" />
@@ -96,6 +97,13 @@
     <Compile Include="CustomerProfile.aspx.designer.cs">
       <DependentUpon>CustomerProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ErrorLabel.ascx.cs">
+      <DependentUpon>ErrorLabel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorLabel.ascx.designer.cs">
+      <DependentUpon>ErrorLabel.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestaurantSelection.aspx.cs">
       <DependentUpon>RestaurantSelection.aspx</DependentUpon>
@@ -122,8 +130,14 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\APIObjects\APIObjects.csproj">
+      <Project>{ff739ad7-1075-4030-9916-a177ee3cc0c5}</Project>
+      <Name>APIObjects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Project4Library\Project4Library.csproj">
       <Project>{3bf68206-850c-47c3-9ce5-40df31e93c3e}</Project>
       <Name>Project4Library</Name>
