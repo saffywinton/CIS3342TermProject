@@ -93,7 +93,7 @@ namespace Project4API.Controllers
 
             //Sets which stored procedure the command object will use
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "TP_CreateMerchant";
+            objCommand.CommandText = "TP_GetWalletUser";
 
             //Inputs parameters to the command object
             fp.AddParameter(ref objCommand, "@email", email);
@@ -223,7 +223,7 @@ namespace Project4API.Controllers
             //Inputs parameters to the command object
             fp.AddParameter(ref objCommand, "@email", AccountHolderInformation.email);
             fp.AddParameter(ref objCommand, "@password", AccountHolderInformation.password);
-            fp.AddParameter(ref objCommand, "@bankRounting", AccountHolderInformation.bankRouting);
+            fp.AddParameter(ref objCommand, "@bankRouting", AccountHolderInformation.bankRouting);
             fp.AddParameter(ref objCommand, "@bankAccount", AccountHolderInformation.bankAccount);
             fp.AddParameter(ref objCommand, "@amount", 0);
 

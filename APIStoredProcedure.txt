@@ -93,3 +93,16 @@ CREATE PROCEDURE [dbo].[TP_RecordTransaction]
 
 	INSERT INTO API_Transactions
 	VALUES (@sender, @receiver, @amount, @type, @date);
+
+CREATE PROCEDURE [dbo].[TP_CreateWalletUser]
+	
+	@email varchar(50)
+	@password varchar(50)
+        @bankRouting varchar(50)
+        @bankAccount varchar(50)
+      	@amount float
+
+	AS
+
+	Insert INTO API_WalletUser
+	VALUES(@email,@password,@bankRouting,@bankAccount,@amount)
