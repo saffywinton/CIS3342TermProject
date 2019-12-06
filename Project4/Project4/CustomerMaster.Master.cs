@@ -13,5 +13,25 @@ namespace Project4
         {
 
         }
+
+        protected void btnToRestaurantList_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnToCart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnToProfile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

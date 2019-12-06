@@ -10,7 +10,7 @@
 namespace Project4 {
     
     
-    public partial class RestarantSelection {
+    public partial class RestaurantSelection {
         
         /// <summary>
         /// ddlType control.

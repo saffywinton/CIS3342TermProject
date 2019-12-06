@@ -8,21 +8,24 @@ namespace Project4Library
 {
     public class Item
     {
+        string itemID;
         string name;
         string description;
         string image;
         float price;
 
-        public Item(string n, string d, string i, float p)
+        public Item(string id, string n, string d, string i, float p)
         {
+            itemID = id;
             name = n;
             description = d;
             image = i;
             price = p;
         }
 
-        public Item(string n, string d, string i, string p)
+        public Item(string id, string n, string d, string i, string p)
         {
+            itemID = id;
             name = n;
             description = d;
             image = i;
@@ -35,6 +38,12 @@ namespace Project4Library
             description = "";
             image = "";
             price = 0;
+        }
+
+        public string ItemID
+        {
+            get { return itemID; }
+            set { itemID = value; }
         }
 
         public string Name
