@@ -193,6 +193,24 @@ namespace Project4 {
         protected global::System.Web.UI.WebControls.TextBox txtSUCBillingAddress;
         
         /// <summary>
+        /// txtSUCRouting control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSUCRouting;
+        
+        /// <summary>
+        /// txtSUCAccount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSUCAccount;
+        
+        /// <summary>
         /// btnSignUpCustomer control.
         /// </summary>
         /// <remarks>
@@ -272,6 +290,24 @@ namespace Project4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSURType;
+        
+        /// <summary>
+        /// txtSURRouting control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSURRouting;
+        
+        /// <summary>
+        /// txtSURAccount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSURAccount;
         
         /// <summary>
         /// btnSignUpRestaurant control.

@@ -38,7 +38,7 @@
                                 Password:
                             </asp:TableCell>
                             <asp:TableCell>
-                                <asp:TextBox ID="txtLoginPassword" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtLoginPassword" runat="server" TextMode="Password"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>
@@ -76,7 +76,7 @@
                                 Password:
                             </asp:TableCell>
                             <asp:TableCell>
-                                <asp:TextBox ID="txtSUCPassword" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtSUCPassword" runat="server" TextMode="Password"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow>
@@ -101,6 +101,22 @@
                             </asp:TableCell>
                             <asp:TableCell>
                                 <asp:TextBox ID="txtSUCBillingAddress" runat="server"></asp:TextBox>
+                            </asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell>
+                                Bank Routing Number
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                <asp:TextBox ID="txtSUCRouting" runat="server"></asp:TextBox>
+                            </asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell>
+                                Bank Account Number
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                <asp:TextBox ID="txtSUCAccount" runat="server"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>
@@ -138,7 +154,7 @@
                                 Password:
                             </asp:TableCell>
                             <asp:TableCell>
-                                <asp:TextBox ID="txtSURPassword" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtSURPassword" runat="server" TextMode="Password"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow>
@@ -155,6 +171,22 @@
                             </asp:TableCell>
                             <asp:TableCell>
                                 <asp:TextBox ID="txtSURType" runat="server"></asp:TextBox>
+                            </asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell>
+                                Bank Routing Number
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                <asp:TextBox ID="txtSURRouting" runat="server"></asp:TextBox>
+                            </asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell>
+                                Bank Account Number
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                <asp:TextBox ID="txtSURAccount" runat="server"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>

@@ -35,10 +35,10 @@
           </ul>
         </nav>
             <div class ="row">
-                <div class="col-9">
+                <!--<div class="col-9">-->
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>
-                </div>
+                <!--</div>
                 <div class="col-3">
                     <div id="CheckOutItems" runat="server">
                     <asp:GridView ID="gvCart" runat="server" AutoGenerateColumns="False" ShowFooter="true">
@@ -54,6 +54,7 @@
                     <asp:Button ID="btnCheckOut" runat="server" Text="CheckOut" />
                     </div>
                 </div>
+                --->
             </div>
         </div>
     </form>

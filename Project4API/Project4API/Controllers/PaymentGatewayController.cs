@@ -84,6 +84,31 @@ namespace Project4API.Controllers
             return m.apiKey;
         }
 
+        //Returns a WalletUser
+        [HttpGet("GetWalletUser/{email}")]
+        public WalletUser GetWalletUser(string email)
+        {
+            //Gets a new SQL Command object
+            objCommand = new SqlCommand();
+
+            //Sets which stored procedure the command object will use
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_CreateMerchant";
+
+            //Inputs parameters to the command object
+            fp.AddParameter(ref objCommand, "@email", email);
+
+            DataSet walletUser = objDB.GetDataSetUsingCmdObj(objCommand);
+
+            WalletUser wu = new WalletUser();
+
+            wu.walletID = int.Parse(walletUser.Tables[0].Rows[0]["walletUserID"].ToString());
+            wu.bankRouting = walletUser.Tables[0].Rows[0]["bankRoutingNumber"].ToString();
+            wu.bankAccount = walletUser.Tables[0].Rows[0]["bankAccountNumber"].ToString();
+            wu.amount = float.Parse(walletUser.Tables[0].Rows[0]["amount"].ToString());
+            return wu;
+        }
+
         internal int MerchantDatabaseEntry(Merchant m)
         {
             //Gets a new SQL Command object
@@ -120,6 +145,8 @@ namespace Project4API.Controllers
 
             fp.AddParameter(ref objCommand, "@email", accountInfo.email);
             fp.AddParameter(ref objCommand, "@password", accountInfo.password);
+            fp.AddParameter(ref objCommand, "@bankRouting", accountInfo.bankRouting);
+            fp.AddParameter(ref objCommand, "@bankAccount", accountInfo.bankAccount);
 
             return objDB.DoUpdateUsingCmdObj(objCommand);
         }
