@@ -20,3 +20,6 @@ C:\Users\Saffy\Desktop\CIS3342TermProject\Project4API\Project4API\obj\Debug\netc
 C:\Users\Saffy\Desktop\CIS3342TermProject\Project4API\Project4API\obj\Debug\netcoreapp2.0\Project4API.AssemblyInfo.cs
 C:\Users\Saffy\Desktop\CIS3342TermProject\Project4API\Project4API\obj\Debug\netcoreapp2.0\Project4API.dll
 C:\Users\Saffy\Desktop\CIS3342TermProject\Project4API\Project4API\obj\Debug\netcoreapp2.0\Project4API.pdb
+C:\Users\Saffy\Desktop\CIS3342TermProject\Project4API\Project4API\bin\Debug\netcoreapp2.0\APILibrary.dll
+C:\Users\Saffy\Desktop\CIS3342TermProject\Project4API\Project4API\bin\Debug\netcoreapp2.0\APILibrary.pdb
+C:\Users\Saffy\Desktop\CIS3342TermProject\Project4API\Project4API\obj\Debug\netcoreapp2.0\Project4API.csproj.CopyComplete
