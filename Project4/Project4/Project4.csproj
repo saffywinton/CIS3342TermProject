@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AccessPage.aspx" />
+    <Content Include="CustomerCart.aspx" />
     <Content Include="CustomerProfile.aspx" />
     <Content Include="ErrorLabel.ascx" />
     <Content Include="RestaurantSelection.aspx" />
@@ -82,6 +83,13 @@
     </Compile>
     <Compile Include="AccessPage.aspx.designer.cs">
       <DependentUpon>AccessPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerCart.aspx.cs">
+      <DependentUpon>CustomerCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerCart.aspx.designer.cs">
+      <DependentUpon>CustomerCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerMaster.Master.cs">
       <DependentUpon>CustomerMaster.Master</DependentUpon>

@@ -33,7 +33,7 @@
             <!-- This is deadspace -->
         </div>
         <div class="col-6">
-            <asp:GridView ID="gvRestaurantList" runat="server" AutoGenerateColumns="false" Class="TableCenter">
+            <asp:GridView ID="gvRestaurantList" runat="server" AutoGenerateColumns="false" style="margin:auto">
                 <Columns>
                     <asp:BoundField HeaderText="RestaurantID" Visible="false"/>
                     <asp:TemplateField HeaderText="Logo">

@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 namespace Project4Library
 {
     /*
-        *    Ieuan Horton
-        * 
-        *    Return codes
-        *   -1 = Failure|UserError
-        *    0 = Failure|LogicError
-        *    1 = Success
-        */
+            *    Ieuan Horton
+            * 
+            *    Return codes
+            *   -1 = Failure|UserError
+            *    0 = Failure|LogicError
+            *    1 = Success
+            */
 
     [Serializable]
     public class Cart
@@ -55,6 +55,35 @@ namespace Project4Library
             }
         }
 
+        public ArrayList GetList()
+        {
+            return ItemList;
+        }
+
+
+        //Takes an arraylist of index values and deletes them from ItemList
+        public int DeleteIndexs(ArrayList listNums)
+        {
+            int count = 0;
+            try//Incase a number ouside the scope of ItemList is passed through.
+            {
+                for (int i = listNums.Count - 1; i >= 0; i--)
+                {
+                    ItemList.RemoveAt(int.Parse(listNums[i].ToString()));
+                    count++;
+                }
+                return count;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+
+        public int GetSize()
+        {
+            return ItemList.Count;
+        }
 
         internal int AddToCart(Item item)
         {

@@ -6,7 +6,7 @@
     <br />
     <asp:Label ID="lblError" runat="server" Text="" Style="color:red;"></asp:Label>
     <br />
-    <asp:GridView ID="gvMenu" runat="server" AutoGenerateColumns="False" Class="TableCenter">
+    <asp:GridView ID="gvAppetizers" runat="server" AutoGenerateColumns="False" style="margin:auto" Caption="Appetizers">
         <Columns>
             <asp:TemplateField HeaderText="Select">
                 <ItemTemplate>
@@ -24,6 +24,89 @@
             <asp:ImageField DataImageUrlField="image">
             </asp:ImageField>
             <asp:BoundField HeaderText="Price" DataField="Price"/>
+            <asp:TemplateField HeaderText="Comments">
+                <ItemTemplate>
+                    <asp:TextBox ID="txtComments" runat="server"></asp:TextBox>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
+
+    <asp:GridView ID="gvSalads" runat="server" AutoGenerateColumns="False"  style="margin:auto" Caption="Salads">
+        <Columns>
+            <asp:TemplateField HeaderText="Select">
+                <ItemTemplate>
+                    <asp:CheckBox ID="chkSelect" runat="server" />
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField HeaderText="ID" DataField="itemID" Visible="false" />
+            <asp:TemplateField HeaderText="Quantity">
+                <ItemTemplate>
+                    <asp:TextBox ID="txtQuantity" runat="server" Text="1"></asp:TextBox>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField HeaderText="Name" DataField="name"/>
+            <asp:BoundField HeaderText="Description" DataField="description"/>
+            <asp:ImageField DataImageUrlField="image">
+            </asp:ImageField>
+            <asp:BoundField HeaderText="Price" DataField="Price"/>
+            <asp:TemplateField HeaderText="Comments">
+                <ItemTemplate>
+                    <asp:TextBox ID="txtComments" runat="server"></asp:TextBox>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
+
+    <asp:GridView ID="gvEntrees" runat="server" AutoGenerateColumns="False"  style="margin:auto" Caption="Entees">
+        <Columns>
+            <asp:TemplateField HeaderText="Select">
+                <ItemTemplate>
+                    <asp:CheckBox ID="chkSelect" runat="server" />
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField HeaderText="ID" DataField="itemID" Visible="false" />
+            <asp:TemplateField HeaderText="Quantity">
+                <ItemTemplate>
+                    <asp:TextBox ID="txtQuantity" runat="server" Text="1"></asp:TextBox>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField HeaderText="Name" DataField="name"/>
+            <asp:BoundField HeaderText="Description" DataField="description"/>
+            <asp:ImageField DataImageUrlField="image">
+            </asp:ImageField>
+            <asp:BoundField HeaderText="Price" DataField="Price"/>
+            <asp:TemplateField HeaderText="Comments">
+                <ItemTemplate>
+                    <asp:TextBox ID="txtComments" runat="server"></asp:TextBox>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
+
+    <asp:GridView ID="gvDrinks" runat="server" AutoGenerateColumns="False"  style="margin:auto" Caption="Drinks">
+        <Columns>
+            <asp:TemplateField HeaderText="Select">
+                <ItemTemplate>
+                    <asp:CheckBox ID="chkSelect" runat="server" />
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField HeaderText="ID" DataField="itemID" Visible="false" />
+            <asp:TemplateField HeaderText="Quantity">
+                <ItemTemplate>
+                    <asp:TextBox ID="txtQuantity" runat="server" Text="1"></asp:TextBox>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField HeaderText="Name" DataField="name"/>
+            <asp:BoundField HeaderText="Description" DataField="description"/>
+            <asp:ImageField DataImageUrlField="image">
+            </asp:ImageField>
+            <asp:BoundField HeaderText="Price" DataField="Price"/>
+            <asp:TemplateField HeaderText="Comments">
+                <ItemTemplate>
+                    <asp:TextBox ID="txtComments" runat="server"></asp:TextBox>
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
     </asp:GridView>
 
