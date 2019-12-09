@@ -110,7 +110,7 @@ namespace Project4Library
             return objDB.GetDataSetUsingCmdObj(objCommand);
         }
 
-        public DataSet GetMenu(string restaurantsID)
+        public DataSet GetMenu(int restaurantsID, string type)
         {
             //Gets a new SQL Command object
             objCommand = new SqlCommand();
@@ -121,6 +121,7 @@ namespace Project4Library
 
             //Inputs parameters to the command object
             fp.AddParameter(ref objCommand, "@restaurantsID", restaurantsID);
+            fp.AddParameter(ref objCommand, "@type", type);
 
             //Returns the DataSet
             return objDB.GetDataSetUsingCmdObj(objCommand);

@@ -10,60 +10,51 @@
 namespace Project4 {
     
     
-    public partial class RestaurantMenu {
+    public partial class CustomerCart {
         
         /// <summary>
-        /// lblError control.
+        /// ErrorLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
+        protected global::Project4.ErrorLabel ErrorLabel;
         
         /// <summary>
-        /// gvAppetizers control.
+        /// gvCart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvAppetizers;
+        protected global::System.Web.UI.WebControls.GridView gvCart;
         
         /// <summary>
-        /// gvSalads control.
+        /// btnDelete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvSalads;
+        protected global::System.Web.UI.WebControls.Button btnDelete;
         
         /// <summary>
-        /// gvEntrees control.
+        /// btnClear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvEntrees;
+        protected global::System.Web.UI.WebControls.Button btnClear;
         
         /// <summary>
-        /// gvDrinks control.
+        /// btnCheckOut control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvDrinks;
-        
-        /// <summary>
-        /// btnAddToCart control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddToCart;
+        protected global::System.Web.UI.WebControls.Button btnCheckOut;
     }
 }

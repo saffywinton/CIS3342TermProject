@@ -47,7 +47,7 @@ namespace Project4
                 }
                 else
                 {
-                    lblError.Text = "User type is invalid, please contact support";
+                    ErrorLabel.FillError("User type is invalid, please contact support");
                 }
             }
 
@@ -77,7 +77,7 @@ namespace Project4
                 }
                 else
                 {
-                    lblError.Text = "That email is already connected to an account";
+                    ErrorLabel.FillError("That email is already connected to an account");
                 }
             }
         }
@@ -104,7 +104,7 @@ namespace Project4
                 }
                 else
                 {
-                    lblError.Text = "That email is already connected to an account";
+                    ErrorLabel.FillError("That email is already connected to an account");
                 }
             }
         }
@@ -150,15 +150,15 @@ namespace Project4
         {
             if (!CheckIfTxtFilled(txtLoginUsername))
             {
-                FillError("Please fill in the email");
+                ErrorLabel.FillError("Please fill in the email");
                 return false;
             }
             else if (!CheckIfTxtFilled(txtLoginPassword))
             {
-                FillError("Please fill in the password");
+                ErrorLabel.FillError("Please fill in the password");
                 return false;
             }
-            FillError("");
+            ErrorLabel.FillError("");
             return true;
         }
 
@@ -207,35 +207,35 @@ namespace Project4
         {
             if (!CheckIfTxtFilled(txtSURName))
             {
-                FillError("Please fill in the restaurant name");
+                ErrorLabel.FillError("Please fill in the restaurant name");
                 return false;
             }
             else if (!CheckIfTxtFilled(txtSURLogo))
             {
-                FillError("Please fill in the logo url");
+                ErrorLabel.FillError("Please fill in the logo url");
                 return false;
             }
             else if (!CheckIfTxtFilled(txtSUREmail))
             {
-                FillError("Please fill in the email");
+                ErrorLabel.FillError("Please fill in the email");
                 return false;
             }
             else if (!CheckIfTxtFilled(txtSURPassword))
             {
-                FillError("Please fill in the password");
+                ErrorLabel.FillError("Please fill in the password");
                 return false;
             }
             else if (!CheckIfTxtFilled(txtSURPhoneNumber))
             {
-                FillError("Please fill in the phone number");
+                ErrorLabel.FillError("Please fill in the phone number");
                 return false;
             }
             else if (!CheckIfTxtFilled(txtSURType))
             {
-                FillError("Please fill in the type");
+                ErrorLabel.FillError("Please fill in the type");
                 return false;
             }
-            FillError("");
+            ErrorLabel.FillError("");
             return true;
         }
 

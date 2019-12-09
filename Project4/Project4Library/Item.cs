@@ -13,23 +13,29 @@ namespace Project4Library
         string description;
         string image;
         float price;
+        string type;
+        string comments;
 
-        public Item(string id, string n, string d, string i, float p)
+        public Item(string id, string n, string d, string i, float p, string t, string c)
         {
             itemID = id;
             name = n;
             description = d;
             image = i;
             price = p;
+            type = t;
+            comments = c;
         }
 
-        public Item(string id, string n, string d, string i, string p)
+        public Item(string id, string n, string d, string i, string p, string t, string c)
         {
             itemID = id;
             name = n;
             description = d;
             image = i;
             price = float.Parse(p);
+            type = t;
+            comments = c;
         }
 
         public Item()
@@ -38,6 +44,8 @@ namespace Project4Library
             description = "";
             image = "";
             price = 0;
+            type = "";
+            comments = "";
         }
 
         public string ItemID
@@ -68,6 +76,18 @@ namespace Project4Library
         {
             get { return price; }
             set { price = value; }
+        }
+
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
+
+        public string Comments
+        {
+            get { return comments; }
+            set { comments = value; }
         }
     }
 }
