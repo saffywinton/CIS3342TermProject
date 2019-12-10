@@ -7,6 +7,8 @@
     <title></title>
 </head>
 <body>
+    <a href="RestaurantManageMenu.aspx">Manage Menu</a>
+    <a href="FundAccount.aspx">Fund Account</a>
     <h2>Account Info</h2>
     <p>&nbsp;</p>
     <form id="form1" runat="server">

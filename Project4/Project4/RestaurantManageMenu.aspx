@@ -7,6 +7,9 @@
     <title></title>
 </head>
 <body>
+     <a href="RestaurantAcct.aspx">Manage Account</a>
+    <a href="FundAccount.aspx">Fund Account</a>
+    <a href="MenuAdd.aspx">Add Item</a>
     <h2>Menu Items</h2>
     <form id="form1" runat="server">
         <div>
@@ -24,13 +27,14 @@
                             <asp:Button ID="btdEdit" runat="server" CausesValidation="false" CommandName="Edit"
                             Text="Edit" />
                     </ItemTemplate>
-                        </asp:TemplateField>
+                       
+                        </asp:TemplateField> 
                     <asp:TemplateField ShowHeader="False">
                      <ItemTemplate>
                             <asp:Button ID="btnDelete" runat="server" CausesValidation="false" CommandName="Delete"
                             Text="Delete" />
                     </ItemTemplate>
-                        </
+                       </asp:TemplateField>
                 </Columns>
             </asp:GridView>
         </div>
