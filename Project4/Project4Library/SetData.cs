@@ -18,6 +18,7 @@ namespace Project4Library
         SqlCommand objCommand;
         string strSQL;
         FillParameters fp = new FillParameters();
+        Serializor serial = new Serializor();
 
         //Creates a user in the database
         //When creating a new user, this one should be called, then grab the user id from the database, then create whatever type of user the user is.

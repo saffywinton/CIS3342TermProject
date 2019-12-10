@@ -34,5 +34,13 @@ namespace Project4Library
             ip = cip.CreateInt(ip);
             objCommand.Parameters.Add(ip);
         }
+
+        //Adds a string parameter to the objCommand object
+        public void AddParameter(ref SqlCommand objCommand, string pName, byte[] pValue)
+        {
+            SqlParameter ip = new SqlParameter(pName, pValue);
+            ip = cip.CreateVarChar(ip);
+            objCommand.Parameters.Add(ip);
+        }
     }
 }
