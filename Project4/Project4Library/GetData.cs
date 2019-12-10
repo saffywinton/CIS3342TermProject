@@ -46,6 +46,17 @@ namespace Project4Library
 
             return objDB.GetDataSetUsingCmdObj(objCommand);
         }
+        public DataSet GetItem(string itemID)
+        {
+            objCommand = new SqlCommand();
+
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetItem";
+
+            fp.AddParameter(ref objCommand, "@itemID", Convert.ToInt32(itemID));
+
+            return objDB.GetDataSetUsingCmdObj(objCommand);
+        }
 
         public DataSet GetRestaurantRep(string userID)
         {

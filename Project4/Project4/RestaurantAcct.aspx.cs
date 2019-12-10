@@ -15,11 +15,14 @@ namespace Project4
             if (!IsPostBack)
             {
                 Restaurant r = (Restaurant)Session["User"];
-                lblName.Text = "name";
-                lblLogo.Text = "lolo";
-                lblPhone.Text = "phone";
-                lblType.Text = "type";
-                lblPassword.Text = "type";
+                if(Session["User"] == null)
+                {
+                    Response.Redirect("AccessPage.aspx");
+                }
+                lblName.Text = r.name;
+                lblLogo.Text = r.logo;
+                lblPhone.Text = r.phoneNumber;
+                lblType.Text = r.type;
                 txtName.Visible = false;
                 txtLogo.Visible = false;
                 txtPhone.Visible = false;

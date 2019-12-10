@@ -131,14 +131,16 @@ namespace Project4Library
         }
 
         //Creates a restaurantItem in the database
-        public void CreateItem(int id, string na, string de, string pr, string im, string ty)
+        public void CreateItem(int id, int rid, string na, string de, string pr, string im, string ty)
         {
             objCommand = new SqlCommand();
 
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "TP_CreateRestaurant";
 
-            fp.AddParameter(ref objCommand, "@userID", id);
+            fp.AddParameter(ref objCommand, "@itemID", id);
+
+            fp.AddParameter(ref objCommand, "@restaurantID", rid);
             fp.AddParameter(ref objCommand, "@name", na);
             fp.AddParameter(ref objCommand, "@description", de);
             fp.AddParameter(ref objCommand, "@price", pr);
@@ -146,7 +148,34 @@ namespace Project4Library
 
             objDB.DoUpdateUsingCmdObj(objCommand);
         }
+        //Creates a restaurantItem in the database
+        public void UpdateItem(string id, int rid, string na, string de, string pr, string im, string ty)
+        {
+            objCommand = new SqlCommand();
 
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_UpdateItem";
+
+            fp.AddParameter(ref objCommand, "@itemID", Convert.ToInt32(id));
+            fp.AddParameter(ref objCommand, "@restaurantID", rid);
+            fp.AddParameter(ref objCommand, "@name", na);
+            fp.AddParameter(ref objCommand, "@description", de);
+            fp.AddParameter(ref objCommand, "@price", pr);
+            fp.AddParameter(ref objCommand, "@type", ty);
+
+            objDB.DoUpdateUsingCmdObj(objCommand);
+        }
+        public void DeleteItem(string id)
+        {
+            objCommand = new SqlCommand();
+
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_DeleteItem";
+
+            fp.AddParameter(ref objCommand, "@itemID", Convert.ToInt32(id));
+
+            objDB.DoUpdateUsingCmdObj(objCommand);
+        }
         //Creates a cart in the database
         public void CreateCart()
         {

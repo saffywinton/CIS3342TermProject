@@ -11,7 +11,10 @@ namespace Project4
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["User"] == null)
+            {
+                Response.Redirect("AccessPage.aspx");
+            }
         }
         protected void gvOrders_OnRowCommand(object sender, GridViewCommandEventArgs e)
         {

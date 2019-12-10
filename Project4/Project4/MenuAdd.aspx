@@ -10,18 +10,22 @@
     <h2>Add A Menu Item</h2>
     <form id="form1" runat="server">
         <div>
-            Name<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            Name<asp:TextBox ID="txtName" runat="server"></asp:TextBox>
         </div>
         <p>
-            Description<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            Description<asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
         </p>
         <p>
-            Price<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+            Image
+            <asp:TextBox ID="txtImage" runat="server"></asp:TextBox>
         </p>
         <p>
-            Type<asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+            Price<asp:TextBox ID="txtPrice" runat="server"></asp:TextBox>
         </p>
-        <asp:Button ID="btnAdd" runat="server" Text="Add" />
+        <p>
+            Type<asp:TextBox ID="txtType" runat="server"></asp:TextBox>
+        </p>
+        <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />
     </form>
 </body>
 </html>

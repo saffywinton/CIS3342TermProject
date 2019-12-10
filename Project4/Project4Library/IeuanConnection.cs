@@ -10,8 +10,8 @@ namespace Project4Library
 {
     public class IeuanDBConnect
     {
-        //String SqlConnectString = "server=cis-mssql1.temple.edu;Database=FA19_3342_tug51072;User id=tug51072;Password=up7keiZe";
-        String SqlConnectString = "server=127.0.0.1,5555;Database=FA19_3342_tug51072;User id=tug51072;Password=up7keiZe";
+        String SqlConnectString = "server=cis-mssql1.temple.edu;Database=FA19_3342_tug51072;User id=tug51072;Password=up7keiZe";
+        //String SqlConnectString = "server=127.0.0.1,5555;Database=FA19_3342_tug51072;User id=tug51072;Password=up7keiZe";
         SqlConnection myConnectionSql;
         SqlCommand objCmd;
         SqlDataReader objDataReader;
