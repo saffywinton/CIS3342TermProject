@@ -20,7 +20,8 @@ namespace Project4
 
         protected void btnFund_Click(object sender, EventArgs e)
         {
-           WalletUser funded = apc.FundAccount("vwID", txtFundAmount.Text, "maID", "APIKey");
+            //I jerry rigged it to give out a walletuser to fix the problem here. Not sure if it works to well though. -Ieuan
+           WalletUser funded = apc.FundAccount("vwID", txtFundAmount.Text);
             
         }
     }

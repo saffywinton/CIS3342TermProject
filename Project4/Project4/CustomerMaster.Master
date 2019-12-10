@@ -16,21 +16,21 @@
 
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
           <!-- Brand/logo -->
-          <a class="navbar-brand" href="#">Logo</a>
+              <asp:Image ID="imgLogo" ImageUrl="Images/logo.png" runat="server" style="width:50px;"/>
   
           <!-- Links -->
           <ul class="navbar-nav">
             <li class="nav-item">
-                <asp:Button ID="btnToRestaurantList" runat="server" Text="Restaurant List" class="nav-link" OnClick="btnToRestaurantList_Click"/>
+                <asp:Button ID="btnToRestaurantList" runat="server" Text="Restaurant List" OnClick="btnToRestaurantList_Click"/>
             </li>
             <li class="nav-item">
-                <asp:Button ID="btnToCart" runat="server" Text="Cart" class="nav-link" OnClick="btnToCart_Click"/>
+                <asp:Button ID="btnToCart" runat="server" Text="Cart" OnClick="btnToCart_Click"/>
             </li>
             <li class="nav-item">
-                <asp:Button ID="btnToProfile" runat="server" Text="Profile" class="nav-link" OnClick="btnToProfile_Click"/>
+                <asp:Button ID="btnToProfile" runat="server" Text="Profile" OnClick="btnToProfile_Click"/>
             </li>
             <li class="nav-item">
-                <asp:Button ID="btnLogout" runat="server" Text="Logout" class="nav-link" OnClick="btnLogout_Click"/>
+                <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click"/>
             </li>
           </ul>
         </nav>

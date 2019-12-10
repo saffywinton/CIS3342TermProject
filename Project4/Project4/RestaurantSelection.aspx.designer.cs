@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project4 {
-    
-    
-    public partial class RestaurantSelection {
-        
+namespace Project4
+{
+
+
+    public partial class RestaurantSelection
+    {
+
         /// <summary>
         /// ddlType control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Project4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlType;
-        
+
         /// <summary>
         /// btnSearch control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Project4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSearch;
-        
+
         /// <summary>
         /// txtKeyword control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Project4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtKeyword;
-        
+
         /// <summary>
         /// btnSearchKeyword control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Project4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSearchKeyword;
-        
+
         /// <summary>
         /// gvRestaurantList control.
         /// </summary>

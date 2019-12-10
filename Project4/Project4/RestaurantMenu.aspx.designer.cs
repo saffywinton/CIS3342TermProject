@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project4 {
-    
-    
-    public partial class RestaurantMenu {
-        
+namespace Project4
+{
+
+
+    public partial class RestaurantMenu
+    {
+
         /// <summary>
         /// lblError control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Project4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblError;
-        
+
         /// <summary>
         /// gvAppetizers control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Project4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvAppetizers;
-        
+
         /// <summary>
         /// gvSalads control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Project4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvSalads;
-        
+
         /// <summary>
         /// gvEntrees control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Project4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvEntrees;
-        
+
         /// <summary>
         /// gvDrinks control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace Project4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvDrinks;
-        
+
         /// <summary>
         /// gvOthers control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace Project4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvOthers;
-        
+
         /// <summary>
         /// btnAddToCart control.
         /// </summary>

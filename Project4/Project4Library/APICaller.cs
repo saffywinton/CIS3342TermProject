@@ -59,15 +59,16 @@ namespace Project4Library
 
             ProcessWebRequest(name, vars);
         }
-
-        public void FundAccount(string account, string amount)
+        public WalletUser FundAccount(string account, string amount)
         {
             string apiKey = GetAPIKey();
             string merchantID = GetMerchantID();
             string name = "FundAccount/";
             string vars = account + "/" + amount + "/" + merchantID + "/" + apiKey;
 
-            ProcessWebRequest(name, vars);
+            String data = ProcessWebRequest(name, vars);
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            return js.Deserialize<WalletUser>(data);
         }
 
         public int CreateWalletUser(string account, string email, string pass, string bankA, string bankR)

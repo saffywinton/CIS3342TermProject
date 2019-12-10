@@ -14,10 +14,9 @@ namespace Project4
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["User"] == null)
+            if (Session["User"] == null)
             {
-                //UncommentThisWhenProject is done
-                //Response.Redirect(lh.AccessPage);
+                Response.Redirect(lh.AccessPage);
             }
         }
 

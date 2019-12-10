@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project4 {
-    
-    
-    public partial class CustomerCart {
-        
+namespace Project4
+{
+
+
+    public partial class CustomerCart
+    {
+
         /// <summary>
         /// ErrorLabel control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Project4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Project4.ErrorLabel ErrorLabel;
-        
+
         /// <summary>
         /// gvCart control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Project4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvCart;
-        
+
         /// <summary>
         /// btnDelete control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Project4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDelete;
-        
+
         /// <summary>
         /// btnClear control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Project4 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnClear;
-        
+
         /// <summary>
         /// btnCheckOut control.
         /// </summary>

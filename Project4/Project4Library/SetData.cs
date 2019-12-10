@@ -222,5 +222,25 @@ namespace Project4Library
 
             objDB.DoUpdateUsingCmdObj(objCommand);
         }
+
+        //Updates a customer and user in the database
+        public void UpdateCustomer(string id, string e, string p, string fn, string ln, string pn, string da, string ba)
+        {
+            objCommand = new SqlCommand();
+
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_UpdateCustomer";
+
+            fp.AddParameter(ref objCommand, "@id", id);
+            fp.AddParameter(ref objCommand, "@email", e);
+            fp.AddParameter(ref objCommand, "@password", p);
+            fp.AddParameter(ref objCommand, "@firstName", fn);
+            fp.AddParameter(ref objCommand, "@lastName", ln);
+            fp.AddParameter(ref objCommand, "@phoneNumber", pn, 10);
+            fp.AddParameter(ref objCommand, "@deliveryAddress", da, 250);
+            fp.AddParameter(ref objCommand, "@billingAddress", ba, 250);
+
+            objDB.DoUpdateUsingCmdObj(objCommand);
+        }
     }
 }
