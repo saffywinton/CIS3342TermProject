@@ -5,7 +5,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using APILibrary;
 
@@ -272,13 +271,12 @@ namespace Project4API.Controllers
 
             return -1;
         }
-
+        
         [HttpPut("FundAccount/{VirtualWalletID}/{amount}/{MerchantAccountID}/{APIKey}")]
-        public object FundAccount(int VirtualWalletID, float amount, int
+        public string FundAccount(int VirtualWalletID, float amount, int
         MerchantAccountID, string APIKey)
-
-
         {
+
             //Check if API key matches
             if (CheckAPIKey(MerchantAccountID, APIKey))
             {
@@ -301,10 +299,10 @@ namespace Project4API.Controllers
 
                 objDB.DoUpdateUsingCmdObj(objCommand);
                 RecordTransaction(-1, VirtualWalletID, amount, "fund");
-                return 1;
+                return "1";
             }
 
-            return -1;
+            return "-1";
         }
 
         //Gets current account balance
@@ -346,5 +344,6 @@ namespace Project4API.Controllers
             return objDB.DoUpdateUsingCmdObj(objCommand);
 
         }
+        
     }
 }

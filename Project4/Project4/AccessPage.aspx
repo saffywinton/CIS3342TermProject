@@ -46,7 +46,9 @@
                         </asp:TableRow>
                     </asp:Table>
                     <br />
-                    <asp:Button ID="btnLogin" runat="server" Text="Button" />
+                    <asp:Button ID="btnLogin" runat="server" Text="Login" />
+                    <br />
+                    <a href="ForgotPass.aspx">Forgot Password?</a>
                 </asp:Panel>
                 <asp:Panel ID="SignUpCustomer" runat="server" Visible="true">
                     <asp:Table ID="tblSignUpCustomer" runat="server" style="margin:auto;">

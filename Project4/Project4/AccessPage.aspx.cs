@@ -303,7 +303,7 @@ namespace Project4
                 key.Tables[0].Rows[0]["APIKey"].ToString());
             Session["User"] = r;
 
-            //Redirect to RestaurantSplashPage
+            Response.Redirect("RestaurantAcct.aspx");
         }
     }
 }

@@ -54,6 +54,7 @@
     <Compile Include="Cart.cs" />
     <Compile Include="CreateInputParameter.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="Email.cs" />
     <Compile Include="FillParameters.cs" />
     <Compile Include="GetData.cs" />
     <Compile Include="IeuanConnection.cs" />

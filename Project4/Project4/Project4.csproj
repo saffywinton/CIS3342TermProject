@@ -71,6 +71,13 @@
     <Content Include="CustomerCart.aspx" />
     <Content Include="CustomerProfile.aspx" />
     <Content Include="ErrorLabel.ascx" />
+    <Content Include="ForgotPass.aspx" />
+    <Content Include="FundAcct.aspx" />
+    <Content Include="MenuAdd.aspx" />
+    <Content Include="MenuEdit.aspx" />
+    <Content Include="RestaurantAcct.aspx" />
+    <Content Include="RestaurantManageMenu.aspx" />
+    <Content Include="RestaurantOrders.aspx" />
     <Content Include="RestaurantSelection.aspx" />
     <Content Include="RestaurantMenu.aspx" />
     <Content Include="Stylesheets\TableSheet.css" />
@@ -112,7 +119,56 @@
     <Compile Include="ErrorLabel.ascx.designer.cs">
       <DependentUpon>ErrorLabel.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ForgotPass.aspx.cs">
+      <DependentUpon>ForgotPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPass.aspx.designer.cs">
+      <DependentUpon>ForgotPass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FundAcct.aspx.cs">
+      <DependentUpon>FundAcct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FundAcct.aspx.designer.cs">
+      <DependentUpon>FundAcct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MenuAdd.aspx.cs">
+      <DependentUpon>MenuAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MenuAdd.aspx.designer.cs">
+      <DependentUpon>MenuAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MenuEdit.aspx.cs">
+      <DependentUpon>MenuEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MenuEdit.aspx.designer.cs">
+      <DependentUpon>MenuEdit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestaurantAcct.aspx.cs">
+      <DependentUpon>RestaurantAcct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RestaurantAcct.aspx.designer.cs">
+      <DependentUpon>RestaurantAcct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantManageMenu.aspx.cs">
+      <DependentUpon>RestaurantManageMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RestaurantManageMenu.aspx.designer.cs">
+      <DependentUpon>RestaurantManageMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantOrders.aspx.cs">
+      <DependentUpon>RestaurantOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RestaurantOrders.aspx.designer.cs">
+      <DependentUpon>RestaurantOrders.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RestaurantSelection.aspx.cs">
       <DependentUpon>RestaurantSelection.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

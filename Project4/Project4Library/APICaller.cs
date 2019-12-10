@@ -35,5 +35,24 @@ namespace Project4Library
 
             return result;
         }
+        public WalletUser FundAccount(string vwID, string amount, string maID, string APIKey)
+        {
+            // Create an HTTP Web Request and get the HTTP Web Response from the server.
+            WebRequest request = WebRequest.Create(url + "FundAccount/ " + vwID + "/" + amount + "/" + maID + "/" + APIKey);
+            WebResponse response = request.GetResponse();
+
+            // Read the data from the Web Response, which requires working with streams.
+            Stream theDataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(theDataStream);
+            String data = reader.ReadToEnd();
+            reader.Close();
+            response.Close();
+
+            // Deserialize a JSON string into a double.
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            WalletUser result = js.Deserialize<WalletUser>(data);
+
+            return result;
+        }
     }
 }
