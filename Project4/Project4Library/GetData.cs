@@ -178,5 +178,22 @@ namespace Project4Library
             //Returns the DataSet
             return objDB.GetDataSetUsingCmdObj(objCommand);
         }
+
+        //Will get a dataset of restaurants filtered by type
+        public DataSet GetLikeRestaurants(string keyword)
+        {
+            //Gets a new SQL Command object
+            objCommand = new SqlCommand();
+
+            //Sets which stored procedure the command object will use
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetRestaurantsByKeyword";
+
+            //Inputs parameters to the command object
+            fp.AddParameter(ref objCommand, "@keyword", keyword);
+
+            //Returns the DataSet
+            return objDB.GetDataSetUsingCmdObj(objCommand);
+        }
     }
 }
