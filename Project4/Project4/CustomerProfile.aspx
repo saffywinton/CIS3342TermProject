@@ -12,7 +12,7 @@
     </div>
     <div class="row">
         <div class="col-6" style="text-align:center;">
-            <asp:Table ID="tblSignUpCustomer" runat="server" style="margin:auto;" Class="TableCenter">
+            <asp:Table ID="tblSignUpCustomer" runat="server" style="margin:auto;">
                 <asp:TableRow>
                     <asp:TableCell>
                         First Name
@@ -92,7 +92,7 @@
             You currently have :<asp:TextBox ID="txtAccountBalance" runat="server" ReadOnly="true"></asp:TextBox> in your account.
             <br />
             Want to add money to your account? Enter the infomation below.
-            <asp:Table ID="tblAddFunds" runat="server" Class="TableCenter">
+            <asp:Table ID="tblAddFunds" runat="server" style="margin:auto">
                 <asp:TableRow>
                     <asp:TableCell>
                         Ammount you want to add:
@@ -110,6 +110,24 @@
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
+            <asp:Button ID="btnAddFunds" runat="server" Text="Add Funds" OnClick="btnAddFunds_Click" />
+
+            <br />
+            <h2> Previous Orders </h2>
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <asp:UpdatePanel ID="AJAXPanel" runat="server">
+                <ContentTemplate>
+                    <asp:GridView ID="gvPreviousOrders" runat="server" AutoGenerateColumns="False" style="margin:auto">
+                        <Columns>
+                            <asp:BoundField DataField="OrderID" Visible="false" />
+                            <asp:BoundField DataField="Restaurant Name" HeaderText="Restaurant Name" />
+                            <asp:BoundField DataField="Total" HeaderText="Total Price" />
+                            <asp:BoundField DataField="Date" HeaderText="Order Date" />
+                            <asp:BoundField DataField="Status" HeaderText="Current Status" />
+                        </Columns>
+                    </asp:GridView>
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </div>
     </div>
 </asp:Content>

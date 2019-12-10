@@ -1,33 +1,73 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Project4Library;
 
 namespace Project4
 {
-    public partial class RestaurantOrders : System.Web.UI.Page
+    public partial class RestaurantSelection : System.Web.UI.Page
     {
+        GetData gd = new GetData();
+        LinkHolder lh = new LinkHolder();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User"] == null)
+            if (!IsPostBack)
             {
-                Response.Redirect("AccessPage.aspx");
-            }
-        }
-        protected void gvOrders_OnRowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName == "EditStatus")
-            {
-                //Get rowindex
-                int rowindex = Convert.ToInt32(e.CommandArgument);
-                //Get Row
-                DropDownList ddl = (DropDownList)gvOrders.Rows[rowindex].FindControl("ddStatus");
-                int orderID = Convert.ToInt32(gvOrders.Rows[rowindex].Cells[0].Text);
-                string newStatus = ddl.SelectedValue.ToString();
+                DataSet restaurant = gd.GetRestaurants();
+                gvRestaurantList.DataSource = restaurant;
+                gvRestaurantList.DataBind();
+
+
+                DataSet types = gd.GetRestaurantType();
+                ddlType.DataValueField = types.Tables[0].Columns["type"].ToString();
+                ddlType.DataTextField = types.Tables[0].Columns["type"].ToString();
+                ddlType.DataBind();
             }
         }
 
+        protected void gvRestaurantList_RowCommand(Object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Select")
+            {
+                int rowIndex = int.Parse(e.CommandArgument.ToString());
+                String restaurantNum = gvRestaurantList.DataKeys[rowIndex].Value.ToString();
+                Session["Restaurant"] = restaurantNum;
+                Response.Redirect(lh.RestaurantMenu);
+            }
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string type = ddlType.SelectedValue;
+
+            DataSet restaurant = gd.GetRestaurants(type);
+            gvRestaurantList.DataSource = restaurant;
+            gvRestaurantList.DataBind();
+        }
+
+        protected void btnSearchKeyword_Click(object sender, EventArgs e)
+        {
+            string keyword = txtKeyword.Text;
+
+            DataSet restaurant = gd.GetLikeRestaurants(keyword);
+            gvRestaurantList.DataSource = restaurant;
+            gvRestaurantList.DataBind();
+        }
+
+        protected void btnSelect_Click(object sender, EventArgs e)
+        {
+            Session["Cart"] = null;
+            Button btn = (Button)sender;
+            GridViewRow gvr = (GridViewRow)btn.NamingContainer;
+            Label restaurantNumlbl = (Label)gvRestaurantList.Rows[gvr.DataItemIndex].FindControl("lblRestaurantID");
+            int restaurantNum = int.Parse(restaurantNumlbl.Text);
+            Session["Restaurant"] = restaurantNum;
+            Response.Redirect(lh.RestaurantMenu);
+        }
     }
 }

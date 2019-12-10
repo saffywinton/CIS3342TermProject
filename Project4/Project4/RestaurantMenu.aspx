@@ -13,7 +13,11 @@
                     <asp:CheckBox ID="chkSelect" runat="server" />
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:BoundField HeaderText="ID" DataField="itemID" Visible="false" />
+             <asp:TemplateField Visible="false">
+                        <ItemTemplate>
+                            <asp:Label ID="itemID" runat="server" Text='<%# Eval("itemID")%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
             <asp:TemplateField HeaderText="Quantity">
                 <ItemTemplate>
                     <asp:TextBox ID="txtQuantity" runat="server" Text="1"></asp:TextBox>
@@ -21,9 +25,9 @@
             </asp:TemplateField>
             <asp:BoundField HeaderText="Name" DataField="name"/>
             <asp:BoundField HeaderText="Description" DataField="description"/>
-            <asp:ImageField DataImageUrlField="image">
+            <asp:ImageField DataImageUrlField="image" ControlStyle-Height="100" ControlStyle-Width="100">
             </asp:ImageField>
-            <asp:BoundField HeaderText="Price" DataField="Price"/>
+            <asp:BoundField HeaderText="Price" DataField="price"/>
             <asp:TemplateField HeaderText="Comments">
                 <ItemTemplate>
                     <asp:TextBox ID="txtComments" runat="server"></asp:TextBox>
@@ -32,14 +36,18 @@
         </Columns>
     </asp:GridView>
 
-    <asp:GridView ID="gvSalads" runat="server" AutoGenerateColumns="False"  style="margin:auto" Caption="Salads">
+       <asp:GridView ID="gvSalads" runat="server" AutoGenerateColumns="False" style="margin:auto" Caption="Salads">
         <Columns>
             <asp:TemplateField HeaderText="Select">
                 <ItemTemplate>
                     <asp:CheckBox ID="chkSelect" runat="server" />
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:BoundField HeaderText="ID" DataField="itemID" Visible="false" />
+             <asp:TemplateField Visible="false">
+                        <ItemTemplate>
+                            <asp:Label ID="itemID" runat="server" Text='<%# Eval("itemID")%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
             <asp:TemplateField HeaderText="Quantity">
                 <ItemTemplate>
                     <asp:TextBox ID="txtQuantity" runat="server" Text="1"></asp:TextBox>
@@ -47,9 +55,9 @@
             </asp:TemplateField>
             <asp:BoundField HeaderText="Name" DataField="name"/>
             <asp:BoundField HeaderText="Description" DataField="description"/>
-            <asp:ImageField DataImageUrlField="image">
+            <asp:ImageField DataImageUrlField="image" ControlStyle-Height="100" ControlStyle-Width="100">
             </asp:ImageField>
-            <asp:BoundField HeaderText="Price" DataField="Price"/>
+            <asp:BoundField HeaderText="Price" DataField="price"/>
             <asp:TemplateField HeaderText="Comments">
                 <ItemTemplate>
                     <asp:TextBox ID="txtComments" runat="server"></asp:TextBox>
@@ -58,14 +66,18 @@
         </Columns>
     </asp:GridView>
 
-    <asp:GridView ID="gvEntrees" runat="server" AutoGenerateColumns="False"  style="margin:auto" Caption="Entees">
+        <asp:GridView ID="gvEntrees" runat="server" AutoGenerateColumns="False" style="margin:auto" Caption="Entrees">
         <Columns>
             <asp:TemplateField HeaderText="Select">
                 <ItemTemplate>
                     <asp:CheckBox ID="chkSelect" runat="server" />
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:BoundField HeaderText="ID" DataField="itemID" Visible="false" />
+             <asp:TemplateField Visible="false">
+                        <ItemTemplate>
+                            <asp:Label ID="itemID" runat="server" Text='<%# Eval("itemID")%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
             <asp:TemplateField HeaderText="Quantity">
                 <ItemTemplate>
                     <asp:TextBox ID="txtQuantity" runat="server" Text="1"></asp:TextBox>
@@ -73,9 +85,9 @@
             </asp:TemplateField>
             <asp:BoundField HeaderText="Name" DataField="name"/>
             <asp:BoundField HeaderText="Description" DataField="description"/>
-            <asp:ImageField DataImageUrlField="image">
+            <asp:ImageField DataImageUrlField="image" ControlStyle-Height="100" ControlStyle-Width="100">
             </asp:ImageField>
-            <asp:BoundField HeaderText="Price" DataField="Price"/>
+            <asp:BoundField HeaderText="Price" DataField="price"/>
             <asp:TemplateField HeaderText="Comments">
                 <ItemTemplate>
                     <asp:TextBox ID="txtComments" runat="server"></asp:TextBox>
@@ -84,14 +96,18 @@
         </Columns>
     </asp:GridView>
 
-    <asp:GridView ID="gvDrinks" runat="server" AutoGenerateColumns="False"  style="margin:auto" Caption="Drinks">
+        <asp:GridView ID="gvDrinks" runat="server" AutoGenerateColumns="False" style="margin:auto" Caption="Drinks">
         <Columns>
             <asp:TemplateField HeaderText="Select">
                 <ItemTemplate>
                     <asp:CheckBox ID="chkSelect" runat="server" />
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:BoundField HeaderText="ID" DataField="itemID" Visible="false" />
+             <asp:TemplateField Visible="false">
+                        <ItemTemplate>
+                            <asp:Label ID="itemID" runat="server" Text='<%# Eval("itemID")%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
             <asp:TemplateField HeaderText="Quantity">
                 <ItemTemplate>
                     <asp:TextBox ID="txtQuantity" runat="server" Text="1"></asp:TextBox>
@@ -99,9 +115,39 @@
             </asp:TemplateField>
             <asp:BoundField HeaderText="Name" DataField="name"/>
             <asp:BoundField HeaderText="Description" DataField="description"/>
-            <asp:ImageField DataImageUrlField="image">
+            <asp:ImageField DataImageUrlField="image" ControlStyle-Height="100" ControlStyle-Width="100">
             </asp:ImageField>
-            <asp:BoundField HeaderText="Price" DataField="Price"/>
+            <asp:BoundField HeaderText="Price" DataField="price"/>
+            <asp:TemplateField HeaderText="Comments">
+                <ItemTemplate>
+                    <asp:TextBox ID="txtComments" runat="server"></asp:TextBox>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
+
+        <asp:GridView ID="gvOthers" runat="server" AutoGenerateColumns="False" style="margin:auto" Caption="Other">
+        <Columns>
+            <asp:TemplateField HeaderText="Select">
+                <ItemTemplate>
+                    <asp:CheckBox ID="chkSelect" runat="server" />
+                </ItemTemplate>
+            </asp:TemplateField>
+             <asp:TemplateField Visible="false">
+                        <ItemTemplate>
+                            <asp:Label ID="itemID" runat="server" Text='<%# Eval("itemID")%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+            <asp:TemplateField HeaderText="Quantity">
+                <ItemTemplate>
+                    <asp:TextBox ID="txtQuantity" runat="server" Text="1"></asp:TextBox>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField HeaderText="Name" DataField="name"/>
+            <asp:BoundField HeaderText="Description" DataField="description"/>
+            <asp:ImageField DataImageUrlField="image" ControlStyle-Height="100" ControlStyle-Width="100">
+            </asp:ImageField>
+            <asp:BoundField HeaderText="Price" DataField="price"/>
             <asp:TemplateField HeaderText="Comments">
                 <ItemTemplate>
                     <asp:TextBox ID="txtComments" runat="server"></asp:TextBox>

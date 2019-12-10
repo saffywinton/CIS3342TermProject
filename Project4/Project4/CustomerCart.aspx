@@ -25,21 +25,25 @@
                     <asp:CheckBox ID="chkSelect" runat="server" />
                 </ItemTemplate>
             </asp:TemplateField>
-             <asp:BoundField HeaderText="ID" DataField="itemID" Visible="false" />
+             <asp:TemplateField Visible="false">
+                        <ItemTemplate>
+                            <asp:Label ID="itemID" runat="server" Text='<%# Eval("itemID")%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
             <asp:TemplateField HeaderText="Quantity">
                 <ItemTemplate>
-                    <asp:TextBox ID="txtQuantity" runat="server" Text="1"></asp:TextBox>
+                    <asp:TextBox ID="txtQuantity" runat="server" Text='<%# Bind("Quantity") %>'></asp:TextBox>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:BoundField HeaderText="Name" DataField="name"/>
             <asp:BoundField HeaderText="Description" DataField="description"/>
             <asp:ImageField DataImageUrlField="image">
             </asp:ImageField>
-            <asp:BoundField HeaderText="Price" DataField="Price" DataFormatString="{0:c}"/>
-            <asp:BoundField DataField="Type" HeaderText="Type" />
+            <asp:BoundField HeaderText="Price" DataField="price" DataFormatString="{0:c}"/>
+            <asp:BoundField DataField="type" HeaderText="Type" />
             <asp:TemplateField HeaderText="Comments">
                 <ItemTemplate>
-                    <asp:TextBox ID="txtComments" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtComments" runat="server" Text='<%# Bind("Comments") %>'></asp:TextBox>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

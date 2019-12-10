@@ -20,29 +20,37 @@ namespace Project4
         const int image = 5;
         const int price = 6;
         const int comments = 7;
+        const int quantity = 2;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             //Ensures that the user came here from the RestaurantSelection page so the menu can be filled
-            if (Session["Restaurant"] != null)
+            if (!IsPostBack)
             {
-                DataSet appetizers = gd.GetMenu(int.Parse(Session["Restaurant"].ToString()), "Appetizers");
-                DataSet drinks = gd.GetMenu(int.Parse(Session["Restaurant"].ToString()), "Drinks");
-                DataSet entrees = gd.GetMenu(int.Parse(Session["Restaurant"].ToString()), "Entrees");
-                DataSet salads = gd.GetMenu(int.Parse(Session["Restaurant"].ToString()), "Salads");
+                if (Session["Restaurant"] != null)
+                {
+                    int restaurantID = int.Parse(Session["Restaurant"].ToString());
+                    DataSet appetizers = gd.GetMenu(restaurantID, "Appetizers");
+                    DataSet drinks = gd.GetMenu(restaurantID, "Drinks");
+                    DataSet entrees = gd.GetMenu(restaurantID, "Entrees");
+                    DataSet salads = gd.GetMenu(restaurantID, "Salads");
+                    DataSet others = gd.GetMenu(restaurantID, "Others");
 
-                gvAppetizers.DataSource = appetizers;
-                gvAppetizers.DataBind();
-                gvDrinks.DataSource = drinks;
-                gvDrinks.DataBind();
-                gvEntrees.DataSource = entrees;
-                gvEntrees.DataBind();
-                gvSalads.DataSource = salads;
-                gvSalads.DataBind();
-            }
-            else
-            {
-                Response.Redirect(lh.RestaurantSelection);
+                    gvAppetizers.DataSource = appetizers;
+                    gvAppetizers.DataBind();
+                    gvDrinks.DataSource = drinks;
+                    gvDrinks.DataBind();
+                    gvEntrees.DataSource = entrees;
+                    gvEntrees.DataBind();
+                    gvSalads.DataSource = salads;
+                    gvSalads.DataBind();
+                    gvOthers.DataSource = others;
+                    gvOthers.DataBind();
+                }
+                else
+                {
+                    Response.Redirect(lh.RestaurantSelection);
+                }
             }
         }
 
@@ -63,7 +71,7 @@ namespace Project4
             }
             else
             {
-                lblError.Text = "No items were selected";
+                //lblError.Text = "No items were selected";
             }
         }
 
@@ -74,25 +82,28 @@ namespace Project4
                 CheckBox cbox;
 
                 cbox = (CheckBox)gvMenu.Rows[i].FindControl("chkSelect");
-
+                lblError.Text = gvMenu.Caption;
                 if (cbox.Checked)
                 {
+
                     Item item = CreateItem(
                         gvMenu.Rows[i].Cells[itemID].Text,
                         gvMenu.Rows[i].Cells[name].Text,
                         gvMenu.Rows[i].Cells[description].Text,
-                        gvMenu.Rows[i].Cells[price].Text,
+                        (float.Parse(gvMenu.Rows[i].Cells[price].Text) * float.Parse(((TextBox)gvMenu.Rows[i].FindControl("txtQuantity")).Text)).ToString(),
                         gvMenu.Rows[i].Cells[image].Text,
                         gvMenu.Caption,
-                        gvMenu.Rows[i].Cells[comments].Text
+                        ((TextBox)gvMenu.Rows[i].FindControl("txtComments")).Text,
+                        ((TextBox)gvMenu.Rows[i].FindControl("txtQuantity")).Text
                         );
-                    cart.ModCart("Add", item);
+                    cart.Add(item);
 
                 }
             }
         }
 
-        internal Item CreateItem(string iID, string na, string de, string pr, string im, string type, string c)
+
+        internal Item CreateItem(string iID, string na, string de, string pr, string im, string type, string c, string q)
         {
             Item i = new Item();
 
@@ -103,6 +114,7 @@ namespace Project4
             i.Image = im;
             i.Type = type;
             i.Comments = c;
+            i.Quantity = int.Parse(q);
 
             return i;
         }
