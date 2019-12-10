@@ -46,7 +46,7 @@
                         </asp:TableRow>
                     </asp:Table>
                     <br />
-                    <asp:Button ID="btnLogin" runat="server" Text="Login" />
+                    <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
                     <br />
                     <a href="ForgotPass.aspx">Forgot Password?</a>
                 </asp:Panel>
@@ -126,7 +126,7 @@
                         </asp:TableRow>
                     </asp:Table>
                     <br />
-                    <asp:Button ID="btnSignUpCustomer" runat="server" Text="SignUp" />
+                    <asp:Button ID="btnSignUpCustomer" runat="server" Text="SignUp" OnClick="btnSignUpCustomer_Click" />
                 </asp:Panel>
                 <asp:Panel ID="SignUpRestaurant" runat="server" Visible="true">
                     <asp:Table ID="tlbSignUpRestaurant" runat="server" style="margin:auto;">
@@ -196,7 +196,7 @@
                         </asp:TableRow>
                     </asp:Table>
                     <br />
-                    <asp:Button ID="btnSignUpRestaurant" runat="server" Text="SignUp" />
+                    <asp:Button ID="btnSignUpRestaurant" runat="server" Text="SignUp" OnClick="btnSignUpRestaurant_Click" Height="33px" Width="77px" />
                 </asp:Panel>
             </div>
             <div class="col-3">

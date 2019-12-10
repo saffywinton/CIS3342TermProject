@@ -35,7 +35,7 @@ namespace Project4
             if (e.CommandName == "Select")
             {
                 int rowIndex = int.Parse(e.CommandArgument.ToString());
-                String restaurantNum = gvRestaurantList.DataKeys[rowIndex].Value.ToString();
+                String restaurantNum = ((Label)gvRestaurantList.Rows[rowIndex].FindControl("lblRestaurantID")).Text;
                 Session["Restaurant"] = restaurantNum;
                 Response.Redirect(lh.RestaurantMenu);
             }

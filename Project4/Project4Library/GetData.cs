@@ -42,7 +42,9 @@ namespace Project4Library
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "TP_GetCustomer";
 
-            fp.AddParameter(ref objCommand, "@userID", userID);
+            int userid = int.Parse(userID);
+
+            fp.AddParameter(ref objCommand, "@userID", userid);
 
             return objDB.GetDataSetUsingCmdObj(objCommand);
         }
@@ -131,7 +133,7 @@ namespace Project4Library
             objCommand.CommandText = "TP_GetMenu";
 
             //Inputs parameters to the command object
-            fp.AddParameter(ref objCommand, "@restaurantsID", restaurantsID);
+            fp.AddParameter(ref objCommand, "@restaurantID", restaurantsID);
             fp.AddParameter(ref objCommand, "@type", type);
 
             //Returns the DataSet

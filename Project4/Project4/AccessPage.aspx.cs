@@ -157,15 +157,17 @@ namespace Project4
 
         internal bool CheckIfTxtFilled(TextBox s)
         {
-            if (s.Text.Equals(""))
+            string entry = s.Text;
+            if (entry.Equals(""))
             {
-                return true;
+                return false;
             }
-            return false;
+            return true;
         }
 
         internal bool ValidateLogin()
         {
+            ErrorLabel.FillError("Checking login");
             if (!CheckIfTxtFilled(txtLoginUsername))
             {
                 ErrorLabel.FillError("Please fill in the email");
@@ -290,23 +292,33 @@ namespace Project4
 
         internal void LogInAsCustomer(string email)
         {
+
             DataSet user = gd.GetProfile(email);
             DataSet customer = gd.GetCustomer(user.Tables[0].Rows[0]["userID"].ToString());
             DataSet key = gd.GetAPIKey();
 
-            Customer c = CreateCustomer(
-                user.Tables[0].Rows[0]["userID"].ToString(),
-                customer.Tables[0].Rows[0]["firstname"].ToString(),
-                customer.Tables[0].Rows[0]["lastname"].ToString(),
-                user.Tables[0].Rows[0]["email"].ToString(),
-                user.Tables[0].Rows[0]["password"].ToString(),
-                customer.Tables[0].Rows[0]["phoneNumber"].ToString(),
-                customer.Tables[0].Rows[0]["billingAddress"].ToString(),
-                customer.Tables[0].Rows[0]["deliveryAddress"].ToString(),
-                key.Tables[0].Rows[0]["APIKey"].ToString());
-            Session["User"] = c;
+            if (customer.Tables.Count > 0)
+            {
 
-            Response.Redirect(lh.RestaurantSelection);
+                Customer c = CreateCustomer(
+                    user.Tables[0].Rows[0]["userID"].ToString(),
+                    customer.Tables[0].Rows[0]["firstName"].ToString(),
+                    customer.Tables[0].Rows[0]["lastName"].ToString(),
+                    user.Tables[0].Rows[0]["email"].ToString(),
+                    user.Tables[0].Rows[0]["password"].ToString(),
+                    customer.Tables[0].Rows[0]["phoneNumber"].ToString(),
+                    customer.Tables[0].Rows[0]["billingAddress"].ToString(),
+                    customer.Tables[0].Rows[0]["deliveryAddress"].ToString(),
+                    key.Tables[0].Rows[0]["apiKey"].ToString());
+                Session["User"] = c;
+
+                Response.Redirect(lh.RestaurantSelection);
+            }
+            else
+            {
+                ErrorLabel.FillError("That customer does not exist");
+            }
+
         }
 
         internal void LogInAsRestaurant(string email)
@@ -325,6 +337,21 @@ namespace Project4
             Session["User"] = r;
 
             Response.Redirect("RestaurantAcct.aspx");
+        }
+
+        protected void btnLogin_Click1(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnSignUpCustomer_Click1(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnSignUpRestaurant_Click1(object sender, EventArgs e)
+        {
+
         }
     }
 }
