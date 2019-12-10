@@ -17,6 +17,7 @@ namespace Project4Library
         string deliveryAddress;
         string billingAddress;
         string apiKey;
+        string walletID;
 
         public string UserID
         {
@@ -70,6 +71,12 @@ namespace Project4Library
         {
             get { return apiKey; }
             set { apiKey = value; }
+        }
+
+        public string WalletID
+        {
+            get { return walletID; }
+            set { walletID = value; }
         }
     }
 }

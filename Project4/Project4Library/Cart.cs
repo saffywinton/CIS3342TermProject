@@ -20,7 +20,12 @@ namespace Project4Library
     public class Cart
     {
         int CustomerID;
-        ArrayList ItemList = new ArrayList();
+        ArrayList ItemList;
+
+        public Cart()
+        {
+            ItemList = new ArrayList();
+        }
 
         //Gets a combined total of all the items in the ItemList
         public float GetCartTotal()
@@ -31,6 +36,11 @@ namespace Project4Library
                 total = total + item.Price;
             }
             return total;
+        }
+
+        public void Add(Item item)
+        {
+            ItemList.Add(item);
         }
 
         //Allows for modifications to the cart

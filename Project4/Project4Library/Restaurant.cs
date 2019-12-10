@@ -14,5 +14,6 @@ namespace Project4Library
         public string phoneNumber { get; set; }
         public string type { get; set; }
         public string apiKey { get; set; }
+        public string walletID { get; set; }
     }
 }

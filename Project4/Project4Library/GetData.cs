@@ -150,5 +150,33 @@ namespace Project4Library
             //Returns the DataSet
             return objDB.GetDataSetUsingCmdObj(objCommand);
         }
+        public DataSet GetOrders(int userID)
+        {
+            //Gets a new SQL Command object
+            objCommand = new SqlCommand();
+
+            //Sets which stored procedure the command object will use
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetOrders";
+
+            //Inputs parameters to the command object
+            fp.AddParameter(ref objCommand, "@UserID", userID);
+
+            //Returns the DataSet
+            return objDB.GetDataSetUsingCmdObj(objCommand);
+        }
+
+        public DataSet GetRestaurantType()
+        {
+            //Gets a new SQL Command object
+            objCommand = new SqlCommand();
+
+            //Sets which stored procedure the command object will use
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetRestaurantTypes";
+
+            //Returns the DataSet
+            return objDB.GetDataSetUsingCmdObj(objCommand);
+        }
     }
 }
