@@ -22,9 +22,19 @@ namespace Project4
             WalletUser wu = new WalletUser();
             Customer c = (Customer)Session["User"];
 
-            wu = apic.GetWalletUser(c.Email);
-            wu.email = c.Email;
-            wu.password = c.Password;
+            try
+            {
+                wu = apic.GetWalletUser(c.Email);
+                wu.email = c.Email;
+                wu.password = c.Password;
+                txtSUCRouting.Text = wu.bankRouting;
+                txtSUCAccount.Text = wu.bankAccount;
+            }
+            catch
+            {
+                ErrorLabel.FillError("A problem has occured with the API. Please try again later.");
+            }
+
 
             txtAccountBalance.Text = "$" + wu.amount.ToString();
 
@@ -35,8 +45,7 @@ namespace Project4
             txtSUCLastName.Text = c.LastName;
             txtSUCPassword.Text = c.Password;
             txtSUCPhoneNumber.Text = c.PhoneNumber;
-            txtSUCRouting.Text = wu.bankRouting;
-            txtSUCAccount.Text = wu.bankAccount;
+
 
             if (!IsPostBack)
             {

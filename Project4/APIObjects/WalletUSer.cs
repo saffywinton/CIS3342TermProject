@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace APILibrary
 {
+    [Serializable]
     public class WalletUser
     {
         public int walletID { get; set; }

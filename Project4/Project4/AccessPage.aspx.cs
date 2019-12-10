@@ -78,9 +78,15 @@ namespace Project4
                     DataSet user = gd.GetProfile(email);
                     string userid = user.Tables[0].Rows[0]["userID"].ToString();
 
-                    int walletID = apic.CreateWalletUser(userid, email, password, bankingAccount, bankingRoute);
-
-                    sd.AddWalletID(int.Parse(userid), walletID);
+                    try
+                    {
+                        int walletID = apic.CreateWalletUser(userid, email, password, bankingAccount, bankingRoute);
+                        sd.AddWalletID(int.Parse(userid), walletID);
+                    }
+                    catch
+                    {
+                        ErrorLabel.FillError("Unable to create virtual wallet. Please contact your chosen restaurant about payment");
+                    }
 
                     LogInAsCustomer(email);
                 }

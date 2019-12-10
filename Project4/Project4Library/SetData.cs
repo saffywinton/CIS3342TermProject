@@ -43,7 +43,7 @@ namespace Project4Library
         }
 
         //Creates a customer in the database
-        public void CreateCustomer(int id, string fn, string ln, string pn, string da, string ba)
+        /*public void CreateCustomer(int id, string fn, string ln, string pn, string da, string ba)
         {
             objCommand = new SqlCommand();
 
@@ -59,7 +59,7 @@ namespace Project4Library
             fp.AddParameter(ref objCommand, "@billingAddress", ba, 250);
 
             objDB.DoUpdateUsingCmdObj(objCommand);
-        }
+        }*/
 
         //Creates a customer and user in the database
         public void CreateCustomer(string e, string p, string t, string fn, string ln, string pn, string da, string ba)
@@ -67,7 +67,7 @@ namespace Project4Library
             objCommand = new SqlCommand();
 
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "TP_CreateCustomer";
+            objCommand.CommandText = "TP_CreateCustomerAndUser";
 
             fp.AddParameter(ref objCommand, "@email", e);
             fp.AddParameter(ref objCommand, "@password", p);

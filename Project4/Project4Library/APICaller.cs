@@ -86,7 +86,7 @@ namespace Project4Library
 
             byte[] byteArray = serial.serializeObject(wu);
 
-            string vars = wu + "/" + merchantID + "/" + apiKey;
+            string vars = byteArray + "/" + merchantID + "/" + apiKey;
 
             String data = ProcessWebRequest(name, vars);
             JavaScriptSerializer js = new JavaScriptSerializer();
