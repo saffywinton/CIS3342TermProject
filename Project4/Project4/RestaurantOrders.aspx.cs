@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Project4Library;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +13,18 @@ namespace Project4
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            GetData gd = new GetData();
+            if (!IsPostBack && Session["User"] != null)
+            {
+                int restaurantID = int.Parse(Session["Restraunt"].ToString());
+                DataSet orders = gd.GetOrders(restaurantID);
+                gvOrders.DataSource = orders;
+                gvOrders.DataBind();
+            }
+            else
+            {
+                Response.Redirect("AccessPage.aspx");
+            }
         }
         protected void gvOrders_OnRowCommand(object sender, GridViewCommandEventArgs e)
         {

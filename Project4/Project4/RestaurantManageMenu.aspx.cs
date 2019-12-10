@@ -1,6 +1,7 @@
 ﻿using Project4Library;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,9 +13,24 @@ namespace Project4
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User"] == null)
+            GetData gd = new GetData();
+            if (!IsPostBack && Session["User"] != null)
             {
-                Response.Redirect("AccessPage.aspx");
+                int restaurantID = int.Parse(Session["Restraunt"].ToString());
+                DataSet orders = gd.GetMenu(restaurantID, "Appetizers");
+                DataSet drinks = gd.GetMenu(restaurantID, "Drinks");
+                DataSet entrees = gd.GetMenu(restaurantID, "Entrees");
+                DataSet salads = gd.GetMenu(restaurantID, "Salads");
+                DataSet others = gd.GetMenu(restaurantID, "Others");
+                orders.Merge(drinks);
+                orders.Merge(entrees);
+                orders.Merge(salads);
+                orders.Merge(others);
+                gvMenu.DataSource = orders;
+                gvMenu.DataBind();
+            }
+            else { 
+            Response.Redirect("AccessPage.aspx");
             }
         }
         protected void gvMenu_OnRowCommand(object sender, GridViewCommandEventArgs e)
