@@ -14,6 +14,7 @@ namespace Project4
     {
         GetData gd = new GetData();
         SetData sd = new SetData();
+        APICaller apic = new APICaller();
         LinkHolder lh = new LinkHolder();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -32,6 +33,7 @@ namespace Project4
         {
             if (ValidateLogin())
             {
+                
                 string username = txtLoginUsername.Text;
                 string password = txtLoginPassword.Text;
 
@@ -65,13 +67,21 @@ namespace Project4
                 string phoneNumber = txtSUCPhoneNumber.Text;
                 string deliveryAddress = txtSUCDeliveryAddress.Text;
                 string billingAddress = txtSUCBillingAddress.Text;
+                string bankingAccount = txtSUCAccount.Text;
+                string bankingRoute = txtSUCRouting.Text;
 
                 ds = gd.GetProfile(email);
                 //Makes sure that the email is not already in use
                 if (ds.Tables[0].Rows.Count == 0)
                 {
-
                     sd.CreateCustomer(email, password, "Customer", firstName, lastName, phoneNumber, deliveryAddress, billingAddress);
+
+                    DataSet user = gd.GetProfile(email);
+                    string userid = user.Tables[0].Rows[0]["userID"].ToString();
+
+                    int walletID = apic.CreateWalletUser(userid, email, password, bankingAccount, bankingRoute);
+
+                    sd.AddWalletID(int.Parse(userid), walletID);
 
                     LogInAsCustomer(email);
                 }
@@ -93,12 +103,21 @@ namespace Project4
                 string password = txtSURPassword.Text;
                 string phoneNumber = txtSURPhoneNumber.Text;
                 string type = txtSURType.Text;
+                string bankingAccount = txtSURAccount.Text;
+                string bankingRoute = txtSURRouting.Text;
 
                 ds = gd.GetProfile(email);
                 //Makes sure that the email is not already in use
                 if (ds.Tables[0].Rows.Count == 0)
                 {
                     sd.CreateRestaurant(email, password, "Restaurant", name, logo, phoneNumber, type);
+
+                    DataSet user = gd.GetProfile(email);
+                    string userid = user.Tables[0].Rows[0]["userID"].ToString();
+
+                    int walletID = apic.CreateWalletUser(userid, email, password, bankingAccount, bankingRoute);
+
+                    sd.AddWalletID(int.Parse(userid), walletID);
 
                     LogInAsRestaurant(email);
                 }
@@ -158,7 +177,10 @@ namespace Project4
                 ErrorLabel.FillError("Please fill in the password");
                 return false;
             }
-            ErrorLabel.FillError("");
+            else
+            {
+                ErrorLabel.FillError("");
+            }
             return true;
         }
 
@@ -240,7 +262,7 @@ namespace Project4
         }
 
 
-        internal Customer CreateCustomer(string uid, string fn, string ln, string em, string pa, string pn, string ba, string da, string apik)
+        internal Customer CreateCustomer(string uid, string fn, string ln, string em, string pa, string pn, string ba, string da, string apik, string wu)
         {
             Customer c = new Customer();
             c.UserID = uid;
@@ -251,10 +273,11 @@ namespace Project4
             c.DeliveryAddress = da;
             c.BillingAddress = ba;
             c.APIKey = apik;
+            c.WalletID = wu;
             return c;
         }
 
-        internal Restaurant CreateRestaurant(string uid, string name, string logo, string pn, string type, string apik)
+        internal Restaurant CreateRestaurant(string uid, string name, string logo, string pn, string type, string apik, string wu)
         {
             Restaurant r = new Restaurant();
             r.userID = uid;
@@ -263,12 +286,15 @@ namespace Project4
             r.phoneNumber = pn;
             r.type = type;
             r.apiKey = apik;
+            r.walletID = wu;
 
             return r;
         }
 
         internal void LogInAsCustomer(string email)
         {
+            
+
             DataSet user = gd.GetProfile(email);
             DataSet customer = gd.GetCustomer(user.Tables[0].Rows[0]["userID"].ToString());
             DataSet key = gd.GetAPIKey();
@@ -282,7 +308,8 @@ namespace Project4
                 customer.Tables[0].Rows[0]["phoneNumber"].ToString(),
                 customer.Tables[0].Rows[0]["billingAddress"].ToString(),
                 customer.Tables[0].Rows[0]["deliveryAddress"].ToString(),
-                key.Tables[0].Rows[0]["APIKey"].ToString());
+                key.Tables[0].Rows[0]["APIKey"].ToString(),
+                user.Tables[0].Rows[0]["walletUserID"].ToString());
             Session["User"] = c;
 
             Response.Redirect(lh.RestaurantSelection);
@@ -300,7 +327,8 @@ namespace Project4
                 restaurant.Tables[0].Rows[0]["logo"].ToString(),
                 restaurant.Tables[0].Rows[0]["phoneNumber"].ToString(),
                 restaurant.Tables[0].Rows[0]["type"].ToString(),
-                key.Tables[0].Rows[0]["APIKey"].ToString());
+                key.Tables[0].Rows[0]["APIKey"].ToString(),
+                user.Tables[0].Rows[0]["walletUserID"].ToString());
             Session["User"] = r;
 
             //Redirect to RestaurantSplashPage

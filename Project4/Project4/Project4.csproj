@@ -71,6 +71,7 @@
     <Content Include="CustomerCart.aspx" />
     <Content Include="CustomerProfile.aspx" />
     <Content Include="ErrorLabel.ascx" />
+    <Content Include="Images\logo.png" />
     <Content Include="RestaurantSelection.aspx" />
     <Content Include="RestaurantMenu.aspx" />
     <Content Include="Stylesheets\TableSheet.css" />

@@ -20,42 +20,68 @@ namespace Project4
         const int TYPEROW = 7;
         const int COMMENTSROW  = 8;
 
+        APICaller apic = new APICaller();
+        SetData sd = new SetData();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Cart"] != null)
+            if (!IsPostBack)
             {
-                int totalQuantity = 0;
-                float total = 0;
+                ErrorLabel.FillError("");
 
-                Cart cart = (Cart)Session["Cart"];
-                gvCart.DataSource = cart.GetList();
-                gvCart.DataBind();
-
-                for (int i = 0; i < cart.GetSize(); i++)
+                if (Session["Cart"] != null)
                 {
-                    totalQuantity = totalQuantity + int.Parse(gvCart.Rows[i].Cells[QUANTITYROW].Text);
-                    total = total + float.Parse(gvCart.Rows[i].Cells[PRICEROW].Text, System.Globalization.NumberStyles.Currency);
+                    int totalQuantity = 0;
+                    float total = 0;
+
+                    Cart cart = (Cart)Session["Cart"];
+                    gvCart.DataSource = cart.GetList();
+                    gvCart.DataBind();
+
+                    for (int i = 0; i < cart.GetSize(); i++)
+                    {
+                        totalQuantity = totalQuantity + int.Parse(((TextBox)gvCart.Rows[i].FindControl("txtQuantity")).Text);
+                        total = total + float.Parse(gvCart.Rows[i].Cells[PRICEROW].Text.Substring(1));
                 }
 
-                gvCart.Columns[QUANTITYROW - 1].FooterText = "Total Quantity";
-                gvCart.Columns[QUANTITYROW].FooterText = totalQuantity.ToString();
-                gvCart.Columns[PRICEROW - 1].FooterText = "Total Price:";
-                gvCart.Columns[PRICEROW].FooterText = total.ToString();
+                    gvCart.Columns[0].FooterText = "Total Quantity";
+                    gvCart.Columns[QUANTITYROW].FooterText = totalQuantity.ToString();
+                    gvCart.Columns[PRICEROW - 1].FooterText = "Total Price:";
+                    gvCart.Columns[PRICEROW].FooterText = total.ToString();
 
-                gvCart.DataBind();
-            }
-            else
-            {
-                ErrorLabel.FillError("Your cart is empty, please select some items and comeback.");
-                btnCheckOut.Visible = false;
-                btnClear.Visible = false;
-                btnDelete.Visible = false;
+                    gvCart.DataBind();
+                }
+                else
+                {
+                    ErrorLabel.FillError("Your cart is empty, please select some items and comeback.");
+                    btnCheckOut.Visible = false;
+                    btnClear.Visible = false;
+                    btnDelete.Visible = false;
+                }
             }
         }
 
         protected void btnCheckOut_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Cart CheckOutCart = new Cart();
+                FillCartFromGridView(ref CheckOutCart, gvCart);
+                Customer user = (Customer)Session["User"];
+                string restaurantNum = Session["Restaurant"].ToString();
 
+                apic.ProcessPayment(user.WalletID, restaurantNum, CheckOutCart.GetCartTotal().ToString(), "Payment");
+
+                Session["Cart"] = null;
+
+                sd.CreateOrder(int.Parse(user.UserID), int.Parse(restaurantNum), CheckOutCart);
+
+                ErrorLabel.FillError("Your order has been placed successfully");
+            }
+            catch
+            {
+                ErrorLabel.FillError("An error occured while processing your payment. You may not have enough money. Please go to your profile and add funds. Then you can return here and place your order.");
+            }
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
@@ -63,6 +89,9 @@ namespace Project4
             ArrayList rowNums = GetRowNumbers();
             Cart cart = (Cart)Session["Cart"];
             cart.DeleteIndexs(rowNums);
+            Session["Cart"] = cart;
+            gvCart.DataSource = cart.GetList();
+            gvCart.DataBind();
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -106,7 +135,8 @@ namespace Project4
                         gvMenu.Rows[i].Cells[PRICEROW].Text,
                         gvMenu.Rows[i].Cells[IMAGEROW].Text,
                         gvMenu.Rows[i].Cells[TYPEROW].Text,
-                        gvMenu.Rows[i].Cells[COMMENTSROW].Text
+                        ((TextBox)gvMenu.Rows[i].FindControl("txtComments")).Text,
+                        ((TextBox)gvMenu.Rows[i].FindControl("txtQuantity")).Text
                         );
                     cart.ModCart("Add", item);
 
@@ -114,7 +144,7 @@ namespace Project4
             }
         }
 
-        internal Item CreateItem(string iID, string na, string de, string pr, string im, string type, string c)
+        internal Item CreateItem(string iID, string na, string de, string pr, string im, string type, string c, string q)
         {
             Item i = new Item();
 
@@ -125,6 +155,7 @@ namespace Project4
             i.Image = im;
             i.Type = type;
             i.Comments = c;
+            i.Quantity = int.Parse(q);
 
             return i;
         }

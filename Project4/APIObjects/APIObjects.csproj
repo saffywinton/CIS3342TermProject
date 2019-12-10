@@ -44,7 +44,7 @@
     <Compile Include="Merchant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VirtualWalletTransactions.cs" />
-    <Compile Include="WalletUSer.cs" />
+    <Compile Include="WalletUser.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -18,6 +18,7 @@ namespace Project4Library
         SqlCommand objCommand;
         string strSQL;
         FillParameters fp = new FillParameters();
+        Serializor serial = new Serializor();
 
         //Creates a user in the database
         //When creating a new user, this one should be called, then grab the user id from the database, then create whatever type of user the user is.
@@ -71,6 +72,26 @@ namespace Project4Library
             fp.AddParameter(ref objCommand, "@email", e);
             fp.AddParameter(ref objCommand, "@password", p);
             fp.AddParameter(ref objCommand, "@type", t);
+            fp.AddParameter(ref objCommand, "@firstName", fn);
+            fp.AddParameter(ref objCommand, "@lastName", ln);
+            fp.AddParameter(ref objCommand, "@phoneNumber", pn, 10);
+            fp.AddParameter(ref objCommand, "@deliveryAddress", da, 250);
+            fp.AddParameter(ref objCommand, "@billingAddress", ba, 250);
+
+            objDB.DoUpdateUsingCmdObj(objCommand);
+        }
+
+        //Updates a customer and user in the database
+        public void UpdateCustomer(string id, string e, string p, string fn, string ln, string pn, string da, string ba)
+        {
+            objCommand = new SqlCommand();
+
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_UpdateCustomer";
+
+            fp.AddParameter(ref objCommand, "@id", id);
+            fp.AddParameter(ref objCommand, "@email", e);
+            fp.AddParameter(ref objCommand, "@password", p);
             fp.AddParameter(ref objCommand, "@firstName", fn);
             fp.AddParameter(ref objCommand, "@lastName", ln);
             fp.AddParameter(ref objCommand, "@phoneNumber", pn, 10);
@@ -148,15 +169,66 @@ namespace Project4Library
         }
 
         //Creates a cart in the database
-        public void CreateCart()
+        public void CreateCart(int userID, int restaurantID, Cart c)
         {
+            objCommand = new SqlCommand();
 
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_CreateCart";
+
+            byte[] byteArray = serial.serializeObject(c);
+
+            fp.AddParameter(ref objCommand, "@cart", byteArray);
+            fp.AddParameter(ref objCommand, "@customerID", userID);
+            fp.AddParameter(ref objCommand, "@restaurantID", restaurantID);
+
+            objDB.DoUpdateUsingCmdObj(objCommand);
+        }
+
+        public void CreateOrder(int userID, int restaurantID, Cart c)
+        {
+            objCommand = new SqlCommand();
+
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_CreateOrder";
+
+            byte[] byteArray = serial.serializeObject(c);
+
+            fp.AddParameter(ref objCommand, "@cart", byteArray);
+            fp.AddParameter(ref objCommand, "@customerID", userID);
+            fp.AddParameter(ref objCommand, "@restaurantID", restaurantID);
+
+            objDB.DoUpdateUsingCmdObj(objCommand);
+
+            //Deletes record from the cart table since it is now an order
+            DeleteCart(userID, restaurantID);
         }
 
         //Deletes a cart 
-        internal void DeleteCart()
+        internal void DeleteCart(int userID, int restaurantID)
         {
+            objCommand = new SqlCommand();
 
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_DeleteCart";
+
+            fp.AddParameter(ref objCommand, "@customerID", userID);
+            fp.AddParameter(ref objCommand, "@restaurantID", restaurantID);
+
+            objDB.DoUpdateUsingCmdObj(objCommand);
+        }
+
+        public void AddWalletID(int userID, int walletID)
+        {
+            objCommand = new SqlCommand();
+
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_AddWalletID";
+
+            fp.AddParameter(ref objCommand, "@userID", userID);
+            fp.AddParameter(ref objCommand, "@walletID", walletID);
+
+            objDB.DoUpdateUsingCmdObj(objCommand);
         }
     }
 }

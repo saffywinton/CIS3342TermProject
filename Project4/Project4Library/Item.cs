@@ -15,8 +15,9 @@ namespace Project4Library
         float price;
         string type;
         string comments;
+        int quantity;
 
-        public Item(string id, string n, string d, string i, float p, string t, string c)
+        public Item(string id, string n, string d, string i, float p, string t, string c, int q)
         {
             itemID = id;
             name = n;
@@ -25,9 +26,10 @@ namespace Project4Library
             price = p;
             type = t;
             comments = c;
+            quantity = q;
         }
 
-        public Item(string id, string n, string d, string i, string p, string t, string c)
+        public Item(string id, string n, string d, string i, string p, string t, string c, int q)
         {
             itemID = id;
             name = n;
@@ -36,6 +38,7 @@ namespace Project4Library
             price = float.Parse(p);
             type = t;
             comments = c;
+            quantity = q;
         }
 
         public Item()
@@ -46,6 +49,7 @@ namespace Project4Library
             price = 0;
             type = "";
             comments = "";
+            quantity = 0;
         }
 
         public string ItemID
@@ -88,6 +92,12 @@ namespace Project4Library
         {
             get { return comments; }
             set { comments = value; }
+        }
+
+        public int Quantity
+        {
+            get { return quantity; }
+            set { quantity = value; }
         }
     }
 }
